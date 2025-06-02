@@ -1,1 +1,13 @@
-<p>about-me works!</p>
+<section class="w-full">
+  <h1>Über mich</h1>
+  <div class="sm:flex-col md:flex-row flex gap-4 px-4">
+    <div class="sm:w-full md:w-1/2 flex-1">
+      <p>{{aboutMe}}</p>
+    </div>
+    <div class="md:w-1/2 flex-initial flex gap-10 flex-wrap">
+        @for (item of [0, 1, 2, 3]; track $index) {
+            <app-about-me-enhance class="sm:w-full md:w-1/3"></app-about-me-enhance>
+        }
+    </div>
+  </div>
+</section>
