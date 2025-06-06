@@ -1,15 +1,18 @@
 import { AfterViewInit, Component, ViewChild, ElementRef, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LocalStorageService } from '../../../services/local-storage.service';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-header',
-  imports: [FormsModule,],
+  imports: [FormsModule, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements AfterViewInit {
+  privacyPolicy = '/privacy-policy'
+
   @ViewChild('themeToggle') themeToggleRef!: ElementRef<HTMLInputElement>;
   localStorage = inject(LocalStorageService);
 

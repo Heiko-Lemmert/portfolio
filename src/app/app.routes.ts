@@ -12,11 +12,11 @@ export const routes: Routes = [
     children: [{ path: '', component: HomeComponent }],
   },
   {
-    path: '',
+    path: 'legal',
     component: LegalLayoutComponent,
     children: [
       { path: 'imprint', component: ImprintComponent },
-      { path: 'privacy-policy', component: PrivacyPoliceComponent },
+      { path: 'privacy-policy', component: PrivacyPoliceComponent }
     ],
   },
   { path: '**', redirectTo: '' },

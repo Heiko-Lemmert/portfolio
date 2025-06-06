@@ -12,6 +12,7 @@ import { ContactsComponent } from './contacts/contacts.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
+
 export class HomeComponent {
 
 }

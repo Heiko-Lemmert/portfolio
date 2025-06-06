@@ -1,26 +1,51 @@
-<nav class="">
-  <div class="navbar  shadow-sm">
-    <div class="flex-1">
-      <a class="btn btn-ghost text-xl">lemmert.dev</a>
-    </div>
-    <div class="flex-none">
-      <ul class="menu menu-horizontal px-1">
-        <li><a>Home</a></li>
-        <li><a>About</a></li>
-        <li><a>Skills</a></li>
-        <li><a>Projects</a></li>
-        <li><a>Reviews</a></li>
-        <li><a>Connect</a></li>
-        <li>
-          <details>
-            <summary>Legal</summary>
-            <ul class="rounded-t-none p-1">
-              <li><a>Imprint</a></li>
-              <li><a class="text-nowarp">Privacy Police</a></li>
+<nav class="filter backdrop-blur-3xl fixed w-full">
+  <div class="navbar shadow-sm">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+        </div>
+        <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+          <li><a href="">Home</a></li>
+          <li><a routerLink="" fragment="about">About</a></li>
+          <li><a [routerLink]="['/routePath']" routerLinkActive="router-link-active" >Skills</a></li>
+          <li><a>Projects</a></li>
+          <li><a>Reviews</a></li>
+          <li><a>Connect</a></li>
+          <li>
+            <a>Legal</a>
+            <ul class="p-2">
+              <li><a href="imprint">Imprint</a></li>
+              <li><a href="privacy-policy" class="text-nowarp">Privacy Police</a></li>
             </ul>
-          </details>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="flex-1">
+        <a routerLink="/" class="btn btn-ghost text-xl">lemmert.dev</a>
+      </div>
+    </div>
+    <div class="navbar-end">
+      <div class="flex-none hidden md:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerlink="/" fragment="about-me" routerLinkActive="router-link-active">About</a></li>
+          <li><a>Skills</a></li>
+          <li><a>Projects</a></li>
+          <li><a>Reviews</a></li>
+          <li><a>Connect</a></li>
+          <li>
+            <details>
+              <summary>Legal</summary>
+              <ul class="rounded-t-none p-1">
+                <li><a [routerLink]="['/legal', 'imprint']" routerLinkActive="router-link-active">Imprint</a></li>
+                <li><a [routerLink]="['/legal', 'privacy-policy']" routerLinkActive="router-link-active"  class="text-nowarp">Privacy Police</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </div>
       <label class="swap swap-rotate">
         <!-- this hidden checkbox controls the state -->
         <input #themeToggle (click)="setTheme()" type="checkbox" class="theme-controller" value="portowhite" />
