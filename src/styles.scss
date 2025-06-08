@@ -1,7 +1,9 @@
 @use "tailwindcss";
+
 @plugin "daisyui" {
   --glas-height: 75vh;
 }
+
 @plugin "daisyui/theme" {
   name: "portodark";
   default: true;
@@ -77,8 +79,26 @@
   background-color: var(--root-bg, var(--color-base-200));
   color: var(--color-base-content);
   --glas-card-height: 75vh;
+
+  .navlink:hover {
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+}
+
+// [data-theme="portodark"] {
+
+// }
+
+// [data-theme="portowhite"] {
+  
+// }
+
+.header-links {
+    color: oklch(86% 0.015 250);
 }
 
 .active {
-  color: green;
+  color: var(--color-primary);
+  font-weight: bold;
 }

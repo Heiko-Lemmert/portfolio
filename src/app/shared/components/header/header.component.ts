@@ -1,31 +1,122 @@
-import { AfterViewInit, Component, ViewChild, ElementRef, inject } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, ElementRef, inject, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LocalStorageService } from '../../../services/local-storage.service';
-import { RouterLink } from '@angular/router';
-
+import { ActivatedRoute, RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, RouterModule, RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements AfterViewInit {
-  privacyPolicy = '/privacy-policy'
-
+export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   @ViewChild('themeToggle') themeToggleRef!: ElementRef<HTMLInputElement>;
-  localStorage = inject(LocalStorageService);
+  activeSection = 'Home';
+  lightThemeActivated: boolean | null = false;
+  isTopOnLight: boolean = false;
+  private observer: IntersectionObserver | null = null;
+
+  private localStorage = inject(LocalStorageService);
+  private route = inject(ActivatedRoute);
+  private location = inject(Location)
+
+  ngOnInit(): void {
+    this.setupInterSectionObserver()
+    this.setActiveFragment();
+  }
 
   ngAfterViewInit() {
     // Zugriff möglich ab hier, da das View-Element dann gerendert ist
-    const isChecked:boolean | null = this.localStorage.getItem('Theme');
-    if (isChecked) {
-      this.themeToggleRef.nativeElement.checked = isChecked;
+    const getTheme:boolean | null = this.localStorage.getItem('Theme');
+    this.lightThemeActivated = getTheme;
+    const isActivated = this.lightThemeActivated;
+    if (isActivated) {
+      this.themeToggleRef.nativeElement.checked = isActivated;
     }
   }
 
+  ngOnDestroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+
+  /**
+   * Sets the current theme preference in local storage based on the state of the theme toggle.
+   * 
+   * Retrieves the checked state from the theme toggle element and stores it in local storage
+   * under the key 'Theme'. This allows the user's theme preference to persist across sessions.
+   *
+   * @remarks
+   * Assumes that `themeToggleRef` is a reference to a toggle input element and that
+   * `localStorage` is an object providing a `setItem` method compatible with the Web Storage API.
+   */
   setTheme() {
-    const isChecked = this.themeToggleRef.nativeElement.checked;
-    this.localStorage.setItem('Theme', isChecked)
+    const setTheme = this.themeToggleRef.nativeElement.checked;
+    this.lightThemeActivated = setTheme ? true : false;
+    this.isTopOnLight = this.isOnRoot() ? true : false;
+    this.localStorage.setItem('Theme', setTheme);
+  }
+
+  isOnRoot() {
+    const path = this.location.path();
+    return (path === '' && !this.isTopOnLight && this.lightThemeActivated)
+  }
+
+   setupInterSectionObserver() {
+    const options = {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px', // Aktiviert wenn Section in der Mitte ist
+      threshold: 0
+    };
+
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionID = entry.target.id;
+          this.activeSection = sectionID || 'home';
+          this.isTopOnLight = sectionID === 'home' && this.lightThemeActivated ? true : false;
+  
+          // URL mit Location Service aktualisieren (ohne Navigation)
+          const fragment = sectionID ? `#${sectionID}` : '';
+          this.location.replaceState(`/${fragment}`);
+        }
+      });
+    }, options);
+
+    // Alle Sections observieren
+    setTimeout(() => {
+      const sections = document.querySelectorAll('section[id], div[id]');
+      sections.forEach(section => {
+        if (this.observer) {
+          this.observer.observe(section);
+        }
+      });
+    }, 100);
+  };
+
+  setActiveFragment() {
+    this.route.fragment.subscribe(fragment => {
+      if (fragment) {
+        this.activeSection = fragment;
+        setTimeout(() => this.scrollTo(fragment), 100);
+      }
+    });
+  }
+
+  scrollTo(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    } else if (sectionId === 'home') {
+      window.scrollTo({ 
+        top: 0, 
+        behavior: 'smooth' 
+      });
+    }
   }
 }
