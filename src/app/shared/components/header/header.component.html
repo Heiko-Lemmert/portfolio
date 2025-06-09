@@ -1,4 +1,4 @@
-<nav class="filter backdrop-blur-3xl fixed w-full z-999">
+<nav class="filter backdrop-blur-3xl fixed w-full z-999 border-b-1 border-(--color-border-nav)">
   <div class="navbar shadow-sm">
     <div class="navbar-start">
       <div class="dropdown">
@@ -46,6 +46,7 @@
           </li>
         </ul>
       </div>
+      <div class="divider divider-horizontal"></div>
       <label class="swap swap-rotate">
         <!-- this hidden checkbox controls the state -->
         <input #themeToggle (click)="setTheme()" type="checkbox" class="theme-controller" value="portowhite" />

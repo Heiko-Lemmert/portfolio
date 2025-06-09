@@ -5,10 +5,13 @@
  <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
    <!-- Glass Card Container -->
     <!-- Content -->
-     <div class="glass-card flex flex-col justify-center gap-10 md:gap-4 h-(--glas-card-height) px-8 md:px-16 mx-4 mb-4">
-       <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">
+     <div class="glass-card flex flex-col justify-center gap-2 md:gap-4 h-(--glas-card-height) px-8 md:px-16 mx-4 mb-4">
+       <h1 class="text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
          Hi, ich bin
-         <span class="bg-linear-to-r from-primary to-secondary text-transparent bg-clip-text">Heiko Lemmert</span>
+         <span class="bg-linear-to-r from-primary to-secondary text-transparent bg-clip-text">
+          <ngx-typed-writer [strings]="['Heiko Lemmert']" [cursorChar]="'|'" [showCursor]="false" [backSpeed]="100" [typeSpeed]="80"></ngx-typed-writer>
+        </span>
+        <span class="cursor">|</span>
        </h1>
 
        <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
@@ -18,19 +21,19 @@
 
        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
          <button routerLink="/" fragment="projects"
-           class="glass-button group px-8 py-4 rounded-lg font-semibold text-white transition-all duration-300 hover:scale-105">
+           class="hidden md:block glass-button group px-8 py-4 rounded-lg font-semibold text-white transition-all duration-300 hover:scale-105">
            <span class="relative z-10">Projekte ansehen</span>
          </button>
 
          <button routerLink="/" fragment="contacts"
-           class="outline-button px-8 py-4 rounded-lg font-semibold text-white border-2 border-white/30 transition-all duration-300 hover:border-white/60 hover:bg-white/10">
+           class="hidden md:block outline-button px-8 py-4 rounded-lg font-semibold text-white border-2 border-white/30 transition-all duration-300 hover:border-white/60 hover:bg-white/10">
            Kontakt aufnehmen
          </button>
        </div>
 
        <!-- Social Links -->
        <div class="flex gap-6 justify-center mt-12">
-         <a href="#"
+         <a [href]="github" target="_blank"
            class="social-link w-12 h-12 rounded-full bg-white/10 flex items-center justify-center transition-all duration-300 hover:bg-white/20 hover:scale-110">
            <!-- GitHub Icon -->
            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -39,7 +42,7 @@
            </svg>
          </a>
 
-         <a href="#"
+         <a [href]="linkedin" target="_blank"
            class="social-link w-12 h-12 rounded-full bg-white/10 flex items-center justify-center transition-all duration-300 hover:bg-white/20 hover:scale-110">
            <!-- LinkedIn Icon -->
            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -48,7 +51,7 @@
            </svg>
          </a>
 
-         <a href="#"
+         <a [href]="mailURL"
            class="social-link w-12 h-12 rounded-full bg-white/10 flex items-center justify-center transition-all duration-300 hover:bg-white/20 hover:scale-110">
            <!-- Email Icon -->
            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

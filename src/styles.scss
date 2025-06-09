@@ -1,8 +1,6 @@
+@use "./animations";
 @use "tailwindcss";
-
-@plugin "daisyui" {
-  --glas-height: 75vh;
-}
+@plugin "daisyui";
 
 @plugin "daisyui/theme" {
   name: "portodark";
@@ -76,29 +74,54 @@
 
 :root,
 [data-theme] {
+  scroll-behavior: smooth;
   background-color: var(--root-bg, var(--color-base-200));
   color: var(--color-base-content);
+  --glas-height: 75vh;
   --glas-card-height: 75vh;
-
-  .navlink:hover {
-    color: var(--color-accent);
-    font-weight: bold;
-  }
+  --color-opacity: oklch(0.27 0.02 212.82 / 0.25);
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+  --animate-blink: blink linear 0.7s infinite;
+  --color-border-nav: #87878780
 }
 
-// [data-theme="portodark"] {
+// Header
 
-// }
-
-// [data-theme="portowhite"] {
-  
-// }
+.navlink:hover {
+  color: var(--color-accent);
+  font-weight: bold;
+}
 
 .header-links {
-    color: oklch(86% 0.015 250);
+  color: oklch(86% 0.015 250);
 }
 
 .active {
   color: var(--color-primary);
   font-weight: bold;
+}
+
+// Hero
+
+.cursor {
+  font-weight: 100;
+  animation: var(--animate-blink);
+  color: var(--color-secondary);
+}
+
+// Divider
+
+.poto-divider::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      var(--color-primary) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  opacity: 0.5;
+  filter: blur(3px);
 }
