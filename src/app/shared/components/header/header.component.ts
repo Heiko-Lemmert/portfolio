@@ -3,10 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { LocalStorageService } from '../../../services/local-storage.service';
 import { ActivatedRoute, RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { Location } from '@angular/common';
+import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-header',
-  imports: [FormsModule, RouterLink, RouterModule, RouterLinkActive],
+  imports: [FormsModule, RouterLink, RouterModule, RouterLinkActive, TranslocoDirective],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -19,12 +20,19 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 
   private localStorage = inject(LocalStorageService);
   private route = inject(ActivatedRoute);
-  private location = inject(Location)
+  private location = inject(Location);
+  private transloco = inject(TranslocoService);
 
   ngOnInit(): void {
     this.setupInterSectionObserver()
     this.setActiveFragment();
+    // this.transloco.langChanges$.subscribe(lang => {
+    //   console.log(`Language changed to: ${lang}`);
+      
+    // });
   }
+
+  
 
   ngAfterViewInit() {
     // Zugriff möglich ab hier, da das View-Element dann gerendert ist
@@ -118,5 +126,10 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
         behavior: 'smooth' 
       });
     }
+  }
+
+  changeLanguage(lang:string) {
+    this.transloco.setActiveLang(lang);
+    this.localStorage.setItem('language', lang)
   }
 }

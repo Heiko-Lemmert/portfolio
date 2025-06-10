@@ -1,0 +1,19 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "Über mich",
+    "skills": "Kompetenzen",
+    "projects": "Projekte",
+    "reviews": "Rezensionen",
+    "connect": "Kontakt",
+    "legal": "Rechte",
+    "imprint": "Impressum",
+    "privacy": "Datenschutzerklärung"
+  },
+  "hero": {
+    "hello": "Hi, ich bin",
+    "welcomeText": "Frontend Developer & UI/UX Designer mit Leidenschaft für moderne Webtechnologien und benutzerfreundliche Interfaces.",
+    "projectBTN": "Projekte ansehen",
+    "contactBTN": "Kontakt aufnehmen"
+  }
+}
