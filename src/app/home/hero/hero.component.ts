@@ -16,5 +16,5 @@ export class HeroComponent {
   github = this.social.socialLinks.github;
   linkedin = this.social.socialLinks.linkedin;
   mailURL = 'mailto:' + this.social.socialLinks.mail;
-
+  nameString: string[] = ['Heiko Lemmert', 'Frontend Developer', 'Angular Enthusiast'];
 }
