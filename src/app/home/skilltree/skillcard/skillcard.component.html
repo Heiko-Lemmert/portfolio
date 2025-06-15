@@ -1,8 +1,22 @@
-<div class="glascard">
-  <div class="img">
-    <img src="" alt="">
+@if(skill.name === 'Growth Mindset') {
+  <div class="tooltip tooltip-neutral">
+    <div class="tooltip-content py-2">
+      <div class=" text-xl font-black">I have a special Interest in learning</div>
+      <div class="flex justify-center gap-4 pt-2">
+      <i class="ci ci-vuejs ci-2xl"></i>
+      <i class="ci ci-react ci-2xl"></i>
+      </div>
+    </div>
+    <div #skillCard [style.--theme-color]="glowColor" id="skillcard-{{ index }}"
+      class="glass-card mouse-cursor-gradient-tracking flex flex-col items-center justify-evenly size-[150px]">
+      <i class="ci {{ skill.icon }} ci-2xl"></i>
+      <span>{{ skill.name }}</span>
+    </div>
   </div>
-  <div class="txt">
-    <span>text</span>
+  } @else {
+  <div #skillCard [style.--theme-color]="glowColor" id="skillcard-{{ index }}"
+    class="glass-card mouse-cursor-gradient-tracking flex flex-col items-center justify-evenly size-[150px]">
+    <i class="ci {{ skill.icon }} ci-2xl"></i>
+    <span>{{ skill.name }}</span>
   </div>
-</div>
+  }

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SkillcardComponent } from './skillcard/skillcard.component';
+import { SkillListService } from '../../services/skill-list.service';
 
 @Component({
   selector: 'app-skilltree',
@@ -8,5 +9,5 @@ import { SkillcardComponent } from './skillcard/skillcard.component';
   styleUrl: './skilltree.component.scss'
 })
 export class SkilltreeComponent {
-
+   skillData = inject(SkillListService);
 }

@@ -3,6 +3,12 @@
 @use "tailwindcss";
 @plugin "daisyui";
 
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
 @theme {
   // Fonts
   --font-primary: 'AR One Sans', 'sans-serif';
@@ -12,6 +18,15 @@
   --avatar-m: 200px;
   --avatar-t: 350px;
   --avatar-d: 500px;
+  --max-content: 1920px;
+
+  --animate-rotate-border: border-rotate 3s linear infinite;
+
+  @keyframes border-rotate {
+    to {
+      --border-angle: 360deg;
+    }
+  }
 }
 
 @plugin "daisyui/theme" {
@@ -106,6 +121,35 @@
   animation: var(--animate-rotate-center);
 }
 
+// Global
+
+.glass-card {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.8) 34%,
+      rgba(255, 255, 255, 0.8) 66%,
+      rgba(255, 255, 255, 0) 100%);
+  opacity: 0.5;
+  filter: blur(0.5px);
+}
+
 // Header
 
 .menu :where(li)>*:not(ul, .menu-title, details, .btn):active,
@@ -166,4 +210,22 @@
       rgba(255, 255, 255, 0) 100%);
   opacity: 0.85;
   filter: blur(3px);
+}
+
+// Icons
+
+.ci-mindset {
+  content: url('/images/continually-learning.svg');
+}
+.ci-scrum {
+  content: url('/images/scrum.svg');
+}
+.ci-rest-api {
+  content: url('/images/api.svg');
+}
+
+// Tooltip
+
+.tooltip {
+  background-color: var(--color-base-100) !important;
 }
