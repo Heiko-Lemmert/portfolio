@@ -1,0 +1,24 @@
+<article class="flex flex-col lg:flex-row w-full px-4">
+  <div #text class="flex-1 flex flex-col gap-2 z-20 xl:justify-center">
+    <h3 class="pl-4 text-(--color-secondary)">JavaScrip | CSS | HTML</h3>
+    <h2 class="pl-4 font-accent text-2xl font-bold">Crused Kingdom</h2>
+    <p class="font-secondary lg:w-[125%] p-4 lg:p-6 glass-card text-balance">Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Officiis iste nemo, fuga distinctio sunt nisi sint! Facilis soluta sed saepe, minima odit
+      laboriosam minus! Ratione blanditiis ipsum ex! Harum, voluptatem.</p>
+    <div class="mt-4">
+      <button role="button" class="btn">Live!</button>
+      <button role="button" class="btn">Github</button>
+    </div>
+  </div>
+  <div #img class="flex-1 z-10 md:flex md:justify-center">
+    <div class="h-auto w-[250px] md:w-[420px] xl:w-[600px] relative flex ">
+      <div
+        class="absolute top-2 left-2 w-full h-full rounded-2xl bg-[repeating-linear-gradient(135deg,#00f0ff_0px,#00f0ff_2px,transparent_2px,transparent_8px)] z-0">
+      </div>
+      <img class="h-full w-full relative z-10 rounded-2xl" src="https://picsum.photos/1280/720" alt="">
+    </div>
+  </div>
+</article>
+@if (isOdd(index)) {
+    <span>Ungerader Articel über mir</span>
+}

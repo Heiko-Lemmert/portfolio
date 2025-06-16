@@ -1,10 +1,11 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-about-me',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslocoDirective],
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.scss'
 })
@@ -13,7 +14,7 @@ export class AboutMeComponent {
   avatar!: ElementRef<HTMLDivElement>;
 
   startScale = false;
-  returnScale = false;
+  frontend = 'Frontend Developer'
 
   @HostListener('mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {

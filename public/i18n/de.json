@@ -15,5 +15,38 @@
     "welcomeText": "Frontend Developer & UI/UX Designer mit Leidenschaft für moderne Webtechnologien und benutzerfreundliche Interfaces.",
     "projectBTN": "Projekte ansehen",
     "contactBTN": "Kontakt aufnehmen"
+  },
+  "about": {
+    "title": "Meine lange Geschichte kurz",
+    "opener": "Hey, ich bin Heiko!",
+    "about-top": "Meine Reise in die Welt des Webentwickelns hat schon 2017 begonnen, als ich mit meinem Bruder an unserer ersten eigene Webseite gearbeitet habe. Schon damals hat mich die kreative Gestaltung von Frontends begeistert: Farben, Formen, Layouts – es war einfach cool, alles zum Leben zu erwecken und mit Code zu verbinden.",
+    "about-middle": {
+      "one": "Heute bin ich ",
+      "two": "Frontend-Entwickler",
+      "three": " und habe ein gutes Auge für Struktur, Usability und die neuesten Webtechnologien. Es macht mir Freude, komplexe Anforderungen in durchdachte, visuell ansprechende Interfaces zu verwandeln. Jedes Projekt bietet mir die Chance, mich weiterzuentwickeln – sei es durch neue Frameworks, anspruchsvolle Designs oder spannende Teamarbeit."
+    },
+    "about-bottom": "Lass uns zusammen Ideen in digitale Erlebnisse verwandeln, die begeistern.",
+    "located": "Ich bin aus Illertissen",
+    "remote": "Ich bin wohnhaft in Illertissen",
+    "relocation": "Ich bin bereit für einen Umzug"
+  },
+  "skills": {
+    "title": "Meine Superkraft",
+    "interest": "Ich habe ein besonderes Interesse am Lernen von"
+  },
+  "projects": {
+    "title": "Ein Blick hinter den Code"
+  },
+  "reviews": {
+    "title": "Feedback von echten Menschen"
+  },
+  "contacts": {
+    "title": "Sag hallo"
+  },
+  "imprint": {
+    "title": "Meine Superkraft"
+  },
+  "privacy": {
+    "title": "Meine Superkraft"
   }
 }

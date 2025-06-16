@@ -1,8 +1,9 @@
 import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-skillcard',
-  imports: [],
+  imports: [TranslocoPipe],
   templateUrl: './skillcard.component.html',
   styleUrl: './skillcard.component.scss'
 })

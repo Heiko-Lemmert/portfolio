@@ -15,5 +15,38 @@
     "welcomeText": "Frontend Developer & UI/UX Designer with a passion for modern web technologies and user-friendly interfaces.",
     "projectBTN": "View Projects",
     "contactBTN": "Contact me"
+  },
+  "about": {
+    "title": "My Long Story Short",
+    "opener": "Hey, i am Heiko!",
+    "about-top": "My journey into the world of web development started back in 2017 when I was working on our first website with my brother. Even back then, I was excited about the creative design of frontends: colors, shapes, layouts - it was just cool to bring everything to life and connect it with code.",
+    "about-middle": {
+      "one": "Today I am a ",
+      "two": "front-end developer",
+      "three": " and have a good eye for structure, usability and the latest web technologies. I enjoy transforming complex requirements into well thought-out, visually appealing interfaces. Every project offers me the chance to develop myself further - whether through new frameworks, sophisticated designs or exciting teamwork."
+    },
+    "about-bottom": "Let's turn ideas into inspiring digital experiences together.",
+    "located": "I am located in Ilertissen",
+    "remote": "I am open for remote work",
+    "relocation": "I am open for relocate"
+  },
+  "skills": {
+    "title": "My Superpower",
+    "interest": "I have a special Interest in learning"
+  },
+  "projects": {
+    "title": "A look behind the code"
+  },
+  "reviews": {
+    "title": "Feedback from real people"
+  },
+  "contacts": {
+    "title": "Say hello"
+  },
+  "imprint": {
+    "title": "Meine Superkraft"
+  },
+  "privacy": {
+    "title": "Meine Superkraft"
   }
 }
