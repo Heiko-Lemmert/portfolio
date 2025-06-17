@@ -62,6 +62,7 @@
   --border: 1px;
   --depth: 0;
   --noise: 1;
+  --bg-glas: #0f172a90;
 }
 
 @plugin "daisyui/theme" {
@@ -97,6 +98,7 @@
   --border: 1px;
   --depth: 0;
   --noise: 1;
+  --bg-glas: #45688561;
 }
 
 :root,
@@ -113,6 +115,9 @@
   --animate-blink: blink linear 0.7s infinite;
   --animate-rotate-center: rotate-center 0.6s ease-in-out both;
   --color-border-nav: #87878780;
+  --color-light-glas: rgba(255, 255, 255, 0.05);
+  --color-dark-glas: rgb(0 0 0 / 50%);
+  --color-navy-glas: #0f172a15;
 }
 
 // Animation
@@ -126,7 +131,6 @@
 .glass-card {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -148,6 +152,37 @@
       rgba(255, 255, 255, 0) 100%);
   opacity: 0.5;
   filter: blur(0.5px);
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent);
+  transition: left 0.5s;
+}
+
+.glass-button:hover::before {
+  left: 100%;
+}
+
+.outline-button:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 // Header

@@ -35,7 +35,11 @@
     "interest": "I have a special Interest in learning"
   },
   "projects": {
-    "title": "A look behind the code"
+    "title": "A look behind the code",
+    "project-join": "Join is a lightweight and flexible Kanban board application designed to help teams and individuals manage tasks and projects efficiently. Inspired by Trello, Join enables you to create boards, lists, and cards to organize your workflow seamlessly.",
+    "project-pokedex": "PokeDex is a sleek and educational Pokémon encyclopedia app built with modern web/mobile technologies. Leveraging the PokeAPI, it enables users to search and browse detailed Pokémon entries complete with stats, abilities, types, and artwork. Inspired by classic Pokédex tools, PokeDex delivers a clean, responsive interface that makes discovering and learning about Pokémon both intuitive and enjoyable.",
+    "project-cursed-kingdom": "Cursed Kingdom is a 2D action-adventure game that combines exploration, combat, and resource collection in a mysterious, cursed realm. Designed with a pixel-art aesthetic and responsive gameplay, Cursed Kingdom challenges players to gather coins and energy-restoring apples while battling enemies using bow and arrow mechanics. The game focuses on fast-paced movement, strategic shooting, and immersive level design for a captivating experience.",
+    "projet-upcoming": "Working in progress"
   },
   "reviews": {
     "title": "Feedback from real people"

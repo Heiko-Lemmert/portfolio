@@ -56,7 +56,7 @@ export class SkillListService {
     {
       name: 'Rest Api',
       icon: 'ci-rest-api',
-      colored: '#808080'
+      colored: '#9d9d9dad'
     },
     {
       name: 'Git',
@@ -66,7 +66,7 @@ export class SkillListService {
     {
       name: 'Github',
       icon: 'ci-github',
-      colored: '#24292f'
+      colored: '#9d9d9dad'
     },
     {
       name: 'VS Code',

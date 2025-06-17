@@ -1,10 +1,10 @@
 <section *transloco="let t, prefix: 'projects'" id="projects"
-  class="max-w-(--max-content) h-max py-8 lg:py-16 px-4 flex flex-col items-center gap-8 lg:g-16 2xl:gap-20">
+  class="max-w-(--max-content) h-max py-8 lg:py-16 px-4 flex flex-col items-center gap-8 lg:gap-16 2xl:gap-20">
   <h1
     class="text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 font-accent text-center bg-linear-to-r from-primary to-secondary text-transparent bg-clip-text">
     {{t('title')}}
   </h1>
-  @for (item of [1,2,3,4]; track $index) {
-    <app-project [index]="$index"></app-project>
+  @for (project of projectdata.projectsList; track $index) {
+    <app-project class="w-full" [index]="$index" [project]="project"></app-project>
   }
 </section>
