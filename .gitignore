@@ -44,3 +44,4 @@ Thumbs.db
 # Projects
 /themes
 tailwind.config.js.old
+styles.css
