@@ -9,4 +9,12 @@ import { TranslocoDirective } from '@jsverse/transloco';
 })
 export class ReviewsComponent {
 
+  reviewsData = [
+    {
+      name: 'Daniel N.',
+      review: 'lorem ipsum abat is ed kolom',
+      avatar: '',
+  }
+]
+
 }
