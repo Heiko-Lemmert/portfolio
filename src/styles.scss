@@ -63,6 +63,7 @@
   --depth: 0;
   --noise: 1;
   --bg-glas: #0f172a90;
+  --color-hover-text: #fff;
 }
 
 @plugin "daisyui/theme" {
@@ -99,6 +100,7 @@
   --depth: 0;
   --noise: 1;
   --bg-glas: #45688561;
+  --color-hover-text: #000;
 }
 
 :root,
@@ -263,4 +265,11 @@
 
 .tooltip {
   background-color: var(--color-base-100) !important;
+}
+
+// Reviews 
+
+.reviewActiv {
+  border-color: var(--color-primary);
+  color: var(--color-hover-text);
 }

@@ -1,54 +1,75 @@
 <section *transloco="let t, prefix: 'reviews'" id="reviews"
-  class="max-w-(--max-content) h-max py-8 lg:py-16 px-4 flex flex-col items-center gap-8 lg:gap-16 2xl:gap-20">
+  class="max-w-(--max-content) h-max py-8 lg:py-16 px-4 flex flex-col items-center gap-8 lg:gap-16 2xl:gap-20 text-balance">
   <h1
     class="text-4xl lg:text-5xl font-bold mb-4 font-accent text-center bg-linear-to-r from-primary to-secondary text-transparent bg-clip-text">
     {{ t('title') }}
   </h1>
 
   <div class="flex flex-col items-center justify-center px-4 text-center relative">
-
     <div
-      class="w-96 h-48 bg-gradient-to-b from-slate-500 via-transparent to-transparent rounded-tl-full rounded-tr-full relative">
-      <div class="w-96 h-48 bg-(--color-base-100) rounded-tl-full rounded-tr-full absolute top-1">
+      class="w-80 h-40 sm:w-96 sm:h-48 bg-gradient-to-b from-slate-500 via-transparent to-transparent rounded-tl-full rounded-tr-full relative">
+      <div class="w-80 h-40 sm:w-96 sm:h-48 bg-(--color-base-100) rounded-tl-full rounded-tr-full absolute top-0.5">
+      </div>
+      <div class="avatar-wrapper relative w-80 h-40 sm:w-96 sm:h-48">
+        <!-- Aktueller Avatar (geht raus, wenn animiert wird) -->
+        <div *ngIf="isAnimating" class="avatar-anim-wrapper absolute z-10 top-1/2 left-1/2 animate-out">
+          <div
+            class="avatar-container w-16 h-16 rounded-full shadow-lg mx-auto transform -translate-x-1/2 -translate-y-1/2">
+            <img src="https://api.dicebear.com/9.x/glass/svg?seed={{ reviewName }}" alt="Avatar"
+              class="w-16 h-16 rounded-full" />
+            <div
+              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-xl font-bold shadow-lg">
+              {{ reviewInitial }}
+            </div>
+          </div>
+        </div>
+        <!-- Aktueller Avatar (sichtbar, wenn keine Animation läuft) -->
+        <div *ngIf="!isAnimating" class="avatar-anim-wrapper absolute z-10 top-1/2 left-1/2">
+          <div
+            class="avatar-container w-16 h-16 rounded-full shadow-lg mx-auto transform -translate-x-1/2 -translate-y-1/2 animate-pulse">
+            <img src="https://api.dicebear.com/9.x/glass/svg?seed={{ reviewName }}" alt="Avatar"
+              class="w-16 h-16 rounded-full" />
+            <div
+              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-xl font-bold shadow-lg">
+              {{ reviewInitial }}
+            </div>
+          </div>
+        </div>
+        <!-- Neuer Avatar (kommt rein) -->
+        <div *ngIf="isAnimating && nextIndex !== null"
+          class="avatar-anim-wrapper absolute z-10 top-1/2 left-1/2 animate-in">
+          <div
+            class="avatar-container w-16 h-16 rounded-full shadow-lg mx-auto transform -translate-x-1/2 -translate-y-1/2">
+            <img src="https://api.dicebear.com/9.x/glass/svg?seed={{ reviewsData[nextIndex].name }}" alt="Avatar"
+              class="w-16 h-16 rounded-full" />
+            <div
+              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-xl font-bold shadow-lg">
+              {{ reviewsData[nextIndex].initial }}
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Avatar -->
-      <div class="avatar-container w-16 h-16 rounded-full shadow-lg mx-auto absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-        <img src="https://api.dicebear.com/9.x/glass/svg?seed=Lars S." alt="Avatar"
-          class="w-16 h-16 rounded-full animate-pulse" />
-        <div
-          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-xl font-bold shadow-lg">
-          DN</div>
-      </div>
     </div>
 
 
     <!-- Zitat -->
-    <p class="max-w-3xl text-lg md:text-xl font-medium relative z-10">
-      <span class="font-semibold">The ability to capture responses is a game-changer.</span>
-      If a user gets tired of the sign up and leaves; that data is still persisted. Additionally,
-      it's great to be able to <span class="font-semibold">select between formats.</span>
+    <p class="max-w-3xl  text-base sm:text-lg md:text-xl font-medium relative z-10 -mt-6 ">
+      {{ t(reviewText) }}
     </p>
 
 
 
     <!-- Name & Position -->
-    <div class="mt-6 flex flex-wrap justify-center gap-2 text-sm text-gray-300 relative z-10">
-      <span class="px-3 py-1 bg-white/10 rounded-full border border-white/20">
-        Jessie J – Ltd Head of Product
-      </span>
-      <span class="px-3 py-1 bg-white/5 rounded-full border border-white/10">
-        Mark Luk – Spark Founder & CEO
-      </span>
-      <span class="px-3 py-1 bg-white/5 rounded-full border border-white/10">
-        Jeff Kahl – Appy Product Lead
-      </span>
+    <div class="mt-6 flex flex-col sm:flex-row flex-wrap justify-center gap-2 text-sm relative z-10">
+      @for(data of reviewsData; track $index) {
+        <span id="review-{{ $index }}" (click)="setReview($index)" [class.reviewActiv]="setActiv($index)"
+          class="px-3 py-1 bg-(--color-base-200)/50 rounded-full border border-(--color-primary)/30 hover:border-(--color-accent)/60 hover:text-(--color-hover-text) cursor-pointer">
+          {{ data.name }} – Project {{ data.project }}
+        </span>
+        }
     </div>
   </div>
 
-
-
-
-
-
 </section>
+ 
