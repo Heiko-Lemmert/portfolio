@@ -12,9 +12,8 @@ import { TranslocoDirective } from '@jsverse/transloco';
 export class AboutMeComponent {
   @ViewChild('avatar')
   avatar!: ElementRef<HTMLDivElement>;
-
+  
   startScale = false;
-  frontend = 'Frontend Developer'
 
   @HostListener('mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {

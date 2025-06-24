@@ -12,7 +12,7 @@
   },
   "hero": {
     "hello": "Hi, i am",
-    "welcomeText": "Frontend Developer & UI/UX Designer with a passion for modern web technologies and user-friendly interfaces.",
+    "welcomeText": "What drives me? Clean code, modern web technologies - and a penchant for well thought-out UI/UX. As a front-end developer, I combine technology with user experience.",
     "projectBTN": "View Projects",
     "contactBTN": "Contact me"
   },
@@ -23,7 +23,7 @@
     "about-middle": {
       "one": "Today I am a ",
       "two": "front-end developer",
-      "three": " and have a good eye for structure, usability and the latest web technologies. I enjoy transforming complex requirements into well thought-out, visually appealing interfaces. Every project offers me the chance to develop myself further - whether through new frameworks, sophisticated designs or exciting teamwork."
+      "three": " – with a penchant for good UI/UX, a sense for clean code and the mission to develop high-performance applications that delight users. I enjoy transforming complex requirements into well thought-out, visually appealing interfaces. Every project offers me the chance to develop myself further - whether through new frameworks, sophisticated designs or exciting teamwork."
     },
     "about-bottom": "Let's turn ideas into inspiring digital experiences together.",
     "located": "I am located in Ilertissen",
