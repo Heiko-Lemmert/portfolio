@@ -43,6 +43,7 @@
   },
   "reviews": {
     "title": "Feedback from real people",
+    "project": "Project",
     "review-1": "Heiko brings structure to every project. He always thinks one step ahead and finds pragmatic solutions that help us all. I have learned a lot from his coding style and his way of working.",
     "review-2": "Working with Heiko was super pleasant. He is helpful, shares his knowledge openly and pays attention to clean, understandable code - this has significantly improved our teamwork.",
     "review-3": "What I appreciate about Heiko: He brings calm to chaos. Even with tricky tasks, he stays focused and keeps his eye on the goal. A real team player with an eye for the essentials."
