@@ -49,12 +49,20 @@
     "review-3": "Was ich an Heiko schätze: Er bringt Ruhe ins Chaos. Auch bei kniffligen Aufgaben bleibt er fokussiert und behält das Ziel im Blick. Ein echter Teamplayer mit Blick fürs Wesentliche."
   },
   "contacts": {
-    "title": "Sag hallo"
+    "title": "Sag hallo",
+    "opener": "Klingt nach 'nem Match? Schreib mir!",
+    "question": "Du planst ein Projekt oder hast einfach nur eine Idee im Kopf?",
+    "answer": "Dann lass uns quatschen! Ich freue mich auf neue Herausforderungen – am liebsten mit klarem Code, klarer Kommunikation und kreativen Lösungen.",
+    "privacy-consent": {
+      "pt.1": "Ich habe die ",
+      "pt.2": "Datenschutzerklärung ",
+      "pt.3": "gelesen und bin damit einverstanden."
+    }
   },
   "imprint": {
-    "title": "Meine Superkraft"
+    "title": "Impressum"
   },
   "privacy": {
-    "title": "Meine Superkraft"
+    "title": "Datenschutzerklärung"
   }
 }

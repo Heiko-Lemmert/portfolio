@@ -1,13 +1,13 @@
 import { AfterViewInit, Component, ViewChild, ElementRef, inject, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LocalStorageService } from '../../../services/local-storage.service';
-import { ActivatedRoute, RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterLink, RouterModule } from '@angular/router';
 import { Location } from '@angular/common';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-header',
-  imports: [FormsModule, RouterLink, RouterModule, RouterLinkActive, TranslocoDirective],
+  imports: [FormsModule, RouterLink, RouterModule, TranslocoDirective],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

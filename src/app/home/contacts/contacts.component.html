@@ -1,15 +1,49 @@
-<section *transloco="let t, prefix: 'contacts'" id="contacts" class="h-80">
-    <h1 class="text-4xl lg:text-5xl font-bold mb-4">
-     <span class=" font-accent text-center bg-linear-to-r from-primary to-secondary text-transparent bg-clip-text">
-      {{t('title')}}
-     </span> 👋
+<section *transloco="let t, prefix: 'contacts'" id="contacts"
+  class="max-w-(--max-content) h-max py-8 lg:py-16 px-4 flex flex-col items-center gap-8 lg:gap-16 2xl:gap-20 text-balance">
+  <h1 class="text-4xl lg:text-5xl font-bold mb-4">
+    <span class=" font-accent text-center bg-linear-to-r from-primary to-secondary text-transparent bg-clip-text">
+      {{ t('title') }}
+    </span> 👋
   </h1>
-    
-    <div
-    class="w-full animate-rotate-border max-w-sm transition-all duration-500 ease-out transform-3d  rounded-lg cursor-pointer hover:scale-[1.03] bg-conic/[from_var(--border-angle)] from-transparent via-green-500 to-transparent from-80% via-90% to-100% p-px">
-    <div class="p-10 rounded-lg bg-(--color-base-100) text-white/50  border border-neutral-800 text-center text-xs">Hello World
+  <div class="flex h-auto flex-col md:flex-row gap-4 mx-4">
+    <div class="flex-1 flex flex-col gap-4">
+      <h2 class="font-secondary text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-(--color-secondary) to-(--color-accent)">{{t('opener')}}</h2>
+      <p class="text-base leading-relaxed text-balance mb-6"> {{ t('question') }} <br> {{ t('answer') }} </p>
+    </div>
+    <div class="flex-1">
+      <form action="/dein-endpunkt" method="post">
+        <div class="form-group">
+          <input type="text" class="input validator input-primary w-full" required placeholder="Username"
+            pattern="[A-Za-z][A-Za-z0-9\-]*" minlength="3" maxlength="30" title="Only letters, numbers or dash" />
+          <p class="validator-hint">
+            Must be 3 to 30 characters containing only letters, numbers or dash
+          </p>
+        </div>
+        <div class="form-group">
+          <input class="input validator input-primary w-full" type="email" required placeholder="mail@site.com" />
+          <div class="validator-hint">Enter valid email address</div>
+        </div>
+        <div class="form-group">
+          <textarea minlength="3" placeholder="Primary" class="textarea validator textarea-primary w-full" required></textarea>
+          <p class="validator-hint">
+            Must be 3 to 30 characters containing only letters, numbers or dash
+          </p>
+        </div>
+        <div class="form-group privacy-consent">
+          <input type="checkbox" id="privacy-consent" name="privacy-consent" class="checkbox validator" required
+            title="Required" />
+          <label for="privacy-consent">
+            {{ t('privacy-consent.pt.1') }} 
+            <a href="/datenschutzerklaerung" target="_blank" rel="noopener">{{ t('privacy-consent.pt.2') }}</a>
+            {{ t('privacy-consent.pt.3') }}
+          </label>
+          <p class="validator-hint">Required</p>
+        </div>
+        <button type="submit" class="btn btn-dash btn-secondary">Absenden</button>
+      </form>
     </div>
   </div>
 
-</section>
 
+
+</section>

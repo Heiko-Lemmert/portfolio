@@ -1,9 +1,19 @@
-<div class="flex flex-col items-center justify-center min-h-[60vh] p-8 rounded-lg shadow-md">
-  <h1 class="text-3xl font-bold mb-6">Impressum</h1>
-  <div class="flex flex-col gap-2 text-lg">
-    <span class="font-semibold">Heiko Lemmert</span>
-    <span>Rudolf-Diesel-Str. 11a</span>
-    <span>89257 Illertissen</span>
-    <span class="mt-4">Mail: <a href="mailto:heiko.lemmert@outlook.com" class="text-blue-600 hover:underline">heiko.lemmert&#64;outlook.com</a></span>
+<section *transloco="let t, prefix: 'imprint'" class="flex flex-col items-center justify-center gap-4">
+  <h1 class="text-4xl lg:text-5xl font-bold mb-4">
+    <span class=" font-accent text-center bg-linear-to-r from-primary to-secondary text-transparent bg-clip-text">
+      {{ t('title') }}
+    </span>
+  </h1>
+  <div
+    class="w-full animate-rotate-border max-w-sm transition-all duration-500 ease-out transform-3d  rounded-lg bg-conic/[from_var(--border-angle)] from-transparent via-(--color-accent) to-transparent from-80% via-90% to-100% p-px">
+    <div class="p-10 rounded-lg bg-(--color-base-100) border border-neutral-800 text-center text-xs">
+      <div class="flex flex-col text-lg">
+        <span class="font-semibold">Heiko Lemmert</span>
+        <span>Rudolf-Diesel-Str. 11a</span>
+        <span>89257 Illertissen</span>
+        <span class="mt-4">Mail: <a href="mailto:heiko.lemmert@outlook.com"
+            class="text-blue-600 hover:underline">heiko.lemmert&#64;outlook.com</a></span>
+      </div>
+    </div>
   </div>
-</div>
+</section>
