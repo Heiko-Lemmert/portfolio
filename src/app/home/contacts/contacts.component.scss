@@ -9,3 +9,9 @@
     flex-direction: row;
     gap: 8px;
 }
+.vd.invalid {
+	border: 2px red solid;
+}
+.vd.valid {
+	border: 2px green solid;
+}
