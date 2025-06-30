@@ -17,16 +17,17 @@ export class ContactsComponent {
     message: ""
   }
 
-  private emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  private nameRegex = /^[A-ZÄÖÜa-zäöüßà-ÿ'-]{2,40}$/;
-  private messagaeRegex = /^[\wäöüÄÖÜßÀ-ÿ0-9 .,;:!?'"()\-–—\n\r]{3,1000}$/m;
+  // emailRegex = '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}';
+  // nameRegex = '^[A-Za-zÄÖÜäöüß]+(?:[ \-][A-Za-zÄÖÜäöüß]+)*$';
+  // messagaeRegex = /^[\wäöüÄÖÜßÀ-ÿ0-9 .,;:!?'"()\-–—\n\r]{3,1000}$/m;
+  namePattern: string = '^[A-Za-zÄÖÜäöüß]+(?:[ \\-][A-Za-zÄÖÜäöüß]+)*$';
+  mailPattern: string = '^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$';
+  email: string = '';
+
+
 
   isInvalid:boolean = false;
   isValid:boolean = false;
-
-  @ViewChild('nameElement') nameField!:ElementRef<HTMLInputElement>;
-  @ViewChild('mailElement') mailField!:ElementRef<HTMLInputElement>;
-  @ViewChild('messageElement') messageField!:ElementRef<HTMLTextAreaElement>;
 
 
   onSubmit(ngForm: NgForm) {
@@ -35,52 +36,38 @@ export class ContactsComponent {
     }
   }
 
-  setBorder(ngModel: NgModel) {
-    const regex:RegExp = this.setRegEx(ngModel);
-    const modelElemt:HTMLInputElement | HTMLTextAreaElement = this.setModelElement(ngModel);
-    console.log(modelElemt);
-    modelElemt.classList.add
+  // setBorder(ngModel: NgModel) {
+  //   const regex:RegExp = this.setRegEx(ngModel);
     
     
-    if (regex.test(ngModel.value)) {
-      console.log('OK');
-      this.isValid = true;
-      this.isInvalid = false;
-    } else {
-      this.isValid = false;
-      this.isInvalid = true;
-      console.log('Bad - Model is: ', ngModel.name );
-      console.log(modelElemt);
-      
+  //   if (regex.test(ngModel.value) && ngModel.touched) {
+  //     console.log('OK');
+  //     this.isValid = true;
+  //     this.isInvalid = false;
+  //   } else {
+  //     //this.isValid = false;
+  //     //this.isInvalid = true;
+  //     console.log('Bad - Model is: ', ngModel.name );   
 
-    }
+  //   }
+  // }
 
+  log(event: any) {
+    console.log(event);
+    
   }
 
-  setRegEx(ngModel: NgModel) {
-    switch (ngModel.name) {
-      case 'name': 
-      return this.nameRegex;
-      case 'mail': 
-      return this.emailRegex;
-      case 'message': 
-      return this.messagaeRegex;
-      default: 
-      return this.nameRegex;
-    }
-  };
-
-  setModelElement(ngModel: NgModel) {
-    switch (ngModel.name) {
-      case 'name': 
-      return this.nameField.nativeElement;
-      case 'mail': 
-      return this.mailField.nativeElement;
-      case 'message': 
-      return this.messageField.nativeElement;
-      default: 
-      return this.nameField.nativeElement;
-    }
-  }
+  // setRegEx(ngModel: NgModel) {
+  //   switch (ngModel.name) {
+  //     case 'name': 
+  //     return this.nameRegex;
+  //     case 'mail': 
+  //     return this.emailRegex;
+  //     case 'message': 
+  //     return this.messagaeRegex;
+  //     default: 
+  //     return this.nameRegex;
+  //   }
+  // };
 
 }

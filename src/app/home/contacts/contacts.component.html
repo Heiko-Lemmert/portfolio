@@ -14,28 +14,32 @@
         {{ t('answer') }} </p>
     </div>
     <div class="flex-1">
-      <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+      <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" class="flex flex-col gap-3">
         <div class="form-group">
-          <input #nameElement #name="ngModel" (ngModelChange)="setBorder(name)" [ngClass]="{'invalid:': isInvalid, 'valid': isValid}" [(ngModel)]="contactData.name" name="name" type="text" class="input input-primary w-full vd"
-            required placeholder="Name" pattern="[A-Za-z][A-Za-z0-9\-]*" minlength="3" maxlength="30"
-            title="Only letters, numbers or dash" />
-          <p class="validator-hint">
-            Must be 3 to 30 characters containing only letters, numbers or dash
-          </p>
-        </div>
-        <div class="form-group">
-          <input #mailElement #mail="ngModel" (ngModelChange)="setBorder(mail)" [ngClass]="{'invalid:': isInvalid, 'valid': isValid}" [(ngModel)]="contactData.mail" name="mail" class="input input-primary w-full vd" type="email"
-            required placeholder="mail@site.com" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" />
-            @if (mail.invalid && mail.touched) {
-              <div class="">Enter valid email address</div>
-            } 
-        </div>
-        <div class="form-group">
-          <textarea #messageElement #message="ngModel" (ngModelChange)="setBorder(message)" [ngClass]="{'invalid:': isInvalid, 'valid': isValid}" [(ngModel)]="contactData.message" name="message" minlength="3"
-            placeholder="Text" class="textarea textarea-primary w-full vd" required></textarea>
-          @if(!message.valid && message.touched) {
-            <p class="">
+          <input #nameElement #name="ngModel" [ngClass]="{'invalid': name.invalid && name.dirty, 'valid': name.valid}"
+            [(ngModel)]="contactData.name" name="name" type="text" class="input input-primary w-full vd" required
+            placeholder="Name" [pattern]="namePattern" minlength="3" />
+          @if(name.invalid && name.touched) {
+            <p class="text-error">
               Must be 3 to 30 characters containing only letters, numbers or dash
+            </p>
+            }
+        </div>
+        <div class="form-group">
+          <input #mailElement #mail="ngModel" [ngClass]="{'invalid': mail.invalid && mail.dirty, 'valid': mail.valid}"
+            [(ngModel)]="contactData.mail" name="mail" class="input input-primary w-full vd" type="email" required email
+            placeholder="mail@site.com" />
+          @if(mail.invalid && mail.touched) {
+            <div class="text-error">Enter valid email address</div>
+            }
+        </div>
+        <div class="form-group">
+          <textarea #message="ngModel" [ngClass]="{'invalid': message.invalid && message.dirty, 'valid': message.valid}"
+            [(ngModel)]="contactData.message" name="message" minlength="3" placeholder="Text"
+            class="textarea textarea-primary w-full vd" required></textarea>
+          @if(message.invalid && message.touched) {
+            <p class="text-error">
+              You must 3 or more letters
             </p>
             }
         </div>
