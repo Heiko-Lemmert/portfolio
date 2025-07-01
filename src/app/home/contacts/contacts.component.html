@@ -15,31 +15,76 @@
     </div>
     <div class="flex-1">
       <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" class="flex flex-col gap-3">
-        <div class="form-group">
-          <input #nameElement #name="ngModel" [ngClass]="{'invalid': name.invalid && name.dirty, 'valid': name.valid}"
-            [(ngModel)]="contactData.name" name="name" type="text" class="input input-primary w-full vd" required
-            placeholder="Name" [pattern]="namePattern" minlength="3" />
+        <div id="name-field">
+          <div class="relative">
+            <input type="text" id="name-input" #name="ngModel"
+              [ngClass]="{'invalid': name.invalid && name.dirty, 'valid': name.valid}" [(ngModel)]="contactData.name"
+              name="name" [pattern]="namePattern" minlength="3"
+              class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-(--color-base-100) rounded-lg border-1 border-(--color-primary)/70 appearance-none focus:outline-none focus:ring-0 focus:border-(--color-primary) peer"
+              placeholder=" " required />
+            <label for="name-input"
+              [ngClass]="{'peer-focus:text-(--color-primary)': name.untouched && name.pristine, 'peer-focus:text-(--color-error)': name.invalid && name.dirty, 'peer-focus:text-(--color-success)': name.valid}"
+              class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-(--color-base-100) rounded-t-2xl px-2 peer-focus:px-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
+              Name</label>
+          </div>
           @if(name.invalid && name.touched) {
-            <p class="text-error">
-              Must be 3 to 30 characters containing only letters, numbers or dash
+            <p id="outlined_error_help" class="mt-1 ml-1 text-xs text-error">
+              @if(name.errors?.['required']) {
+                <span class="font-medium">Hoppla!</span> Der Name ist erforderlich.
+                }
+                @if(name.errors?.['minlength']) {
+                  <span class="font-medium">Ups!</span> Der Name muss mindestens 3 Zeichen lang sein.
+                  }
+                  @if(name.errors?.['pattern']) {
+                    <span class="font-medium">Falsches Format!</span> Der Name darf nur Buchstaben, Leerzeichen und
+                    Umlaute enthalten.
+                    }
             </p>
             }
         </div>
-        <div class="form-group">
-          <input #mailElement #mail="ngModel" [ngClass]="{'invalid': mail.invalid && mail.dirty, 'valid': mail.valid}"
-            [(ngModel)]="contactData.mail" name="mail" class="input input-primary w-full vd" type="email" required email
-            placeholder="mail@site.com" />
+        <div id="mail-field">
+          <div class="relative">
+            <input id="mail-input" #mail="ngModel"
+              [ngClass]="{'invalid': mail.invalid && mail.dirty, 'valid': mail.valid}" [(ngModel)]="contactData.mail"
+              name="mail"
+              class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-(--color-base-100) rounded-lg border-1 border-(--color-primary)/70 appearance-none focus:outline-none focus:ring-0 focus:border-(--color-primary) peer"
+              placeholder=" " type="email" required email />
+            <label for="mail-input"
+              [ngClass]="{'peer-focus:text-(--color-primary)': mail.untouched && mail.pristine, 'peer-focus:text-(--color-error)': mail.invalid && mail.dirty, 'peer-focus:text-(--color-success)': mail.valid}"
+              class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-(--color-base-100) rounded-t-2xl px-2 peer-focus:px-2 peer-focus:text-(--color-primary) peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
+              E-Mail</label>
+          </div>
           @if(mail.invalid && mail.touched) {
-            <div class="text-error">Enter valid email address</div>
+            <p id="outlined_error_help" class="mt-1 ml-1 text-xs text-error">
+              @if(mail.errors?.['required']) {
+                <span class="font-medium">Bitte gib deine E-Mail-Adresse ein.</span>
+                }
+                @if(mail.errors?.['email']) {
+                  <span class="font-medium">Das E-Mail-Format ist ungültig. (z.B. user&#64;mail.com)</span>
+                  }
+            </p>
             }
         </div>
-        <div class="form-group">
-          <textarea #message="ngModel" [ngClass]="{'invalid': message.invalid && message.dirty, 'valid': message.valid}"
-            [(ngModel)]="contactData.message" name="message" minlength="3" placeholder="Text"
-            class="textarea textarea-primary w-full vd" required></textarea>
+        <div id="message-field">
+          <div class="relative">
+            <textarea type="text" id="message-input" #message="ngModel"
+              [ngClass]="{'invalid': message.invalid && message.dirty, 'valid': message.valid}"
+              [(ngModel)]="contactData.message" name="message" minlength="10"
+              class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-(--color-base-100) rounded-lg border-1 border-(--color-primary)/70 appearance-none focus:outline-none focus:ring-0 focus:border-(--color-primary) peer"
+              placeholder=" " required></textarea>
+            <label for="message-input"
+              [ngClass]="{'peer-focus:text-(--color-primary)': message.untouched && message.pristine, 'peer-focus:text-(--color-error)': message.invalid && message.dirty, 'peer-focus:text-(--color-success)': message.valid}"
+              class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-(--color-base-100) rounded-t-2xl px-2 peer-focus:px-2 peer-focus:text-(--color-primary) peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
+              Text</label>
+          </div>
           @if(message.invalid && message.touched) {
-            <p class="text-error">
-              You must 3 or more letters
+            <p id="outlined_error_help" class="mt-1 ml-1 text-xs text-error">
+              @if(message.errors?.['required']) {
+                <span class="font-medium">Bitte gib deine Nachricht ein.</span>
+                }
+                @if(message.errors?.['minlength']) {
+                  <span class="font-medium">Die Nachricht ist zu kurz. Gib mehr Details an. (min. 10 Zeichen)</span>
+                  }
             </p>
             }
         </div>
@@ -57,6 +102,14 @@
           </label>
         </div>
         <button type="submit" class="btn btn-dash btn-secondary">Absenden</button>
+
+
+
+
+
+
+
+
       </form>
     </div>
   </div>

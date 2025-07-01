@@ -9,9 +9,10 @@
     flex-direction: row;
     gap: 8px;
 }
-.vd.invalid {
-	border: 2px red solid;
-}
-.vd.valid {
-	border: 2px green solid;
-}
+
+
+// .invalid:focus {
+// 	outline: 2px solid red;
+//     outline-offset: 2px;
+// 	box-shadow: 0 1px color-mix(in oklab, red calc(var(--depth) * 10%), #0000);
+// }

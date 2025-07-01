@@ -273,3 +273,29 @@
   border-color: var(--color-primary);
   color: var(--color-hover-text);
 }
+
+// Validator
+
+.invalid {
+	border: 1px solid;
+  border-color: color-mix(in oklab, var(--color-error) 80%, transparent) !important;
+}
+.valid {
+	border: 1px solid;
+  border-color: color-mix(in oklab, var(--color-success) 80%, transparent) !important;
+}
+
+.invalid:focus {
+	border: 1.5px var(--color-error) solid !important;
+}
+.valid:focus {
+	border: 1.5px var(--color-success) solid !important;
+}
+
+.invalid-txt:focus {
+	color: var(--color-error) !important;
+}
+.valid-txt:focus {
+	color: var(--color-success) !important;
+}
+

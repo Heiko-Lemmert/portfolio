@@ -17,57 +17,34 @@ export class ContactsComponent {
     message: ""
   }
 
-  // emailRegex = '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}';
-  // nameRegex = '^[A-Za-zÄÖÜäöüß]+(?:[ \-][A-Za-zÄÖÜäöüß]+)*$';
-  // messagaeRegex = /^[\wäöüÄÖÜßÀ-ÿ0-9 .,;:!?'"()\-–—\n\r]{3,1000}$/m;
+
   namePattern: string = '^[A-Za-zÄÖÜäöüß]+(?:[ \\-][A-Za-zÄÖÜäöüß]+)*$';
   mailPattern: string = '^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$';
   email: string = '';
 
 
 
-  isInvalid:boolean = false;
-  isValid:boolean = false;
-
-
   onSubmit(ngForm: NgForm) {
     if (ngForm.valid && ngForm.submitted) {
-      console.log(this.contactData);
+      console.log('Formular ist gültig!', this.contactData);
+    } else {
+      console.log('Formular ist ungültig.');
+      this.markAllAsTouched(ngForm);
     }
   }
 
-  // setBorder(ngModel: NgModel) {
-  //   const regex:RegExp = this.setRegEx(ngModel);
-    
-    
-  //   if (regex.test(ngModel.value) && ngModel.touched) {
-  //     console.log('OK');
-  //     this.isValid = true;
-  //     this.isInvalid = false;
-  //   } else {
-  //     //this.isValid = false;
-  //     //this.isInvalid = true;
-  //     console.log('Bad - Model is: ', ngModel.name );   
+  private markAllAsTouched(form: NgForm) {
+    Object.keys(form.controls).forEach(field => {
+      const control = form.controls[field];
+      control.markAsTouched({ onlySelf: true });
+      control.markAsDirty({ onlySelf: true });
+    });
+  }
 
-  //   }
-  // }
 
   log(event: any) {
     console.log(event);
-    
-  }
 
-  // setRegEx(ngModel: NgModel) {
-  //   switch (ngModel.name) {
-  //     case 'name': 
-  //     return this.nameRegex;
-  //     case 'mail': 
-  //     return this.emailRegex;
-  //     case 'message': 
-  //     return this.messagaeRegex;
-  //     default: 
-  //     return this.nameRegex;
-  //   }
-  // };
+  }
 
 }
