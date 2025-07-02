@@ -1,18 +1,11 @@
 .form-group {
-	width: 75%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .privacy-consent {
-    flex-direction: row;
-    gap: 8px;
+  flex-direction: row;
+  gap: 8px;
 }
-
-
-// .invalid:focus {
-// 	outline: 2px solid red;
-//     outline-offset: 2px;
-// 	box-shadow: 0 1px color-mix(in oklab, red calc(var(--depth) * 10%), #0000);
-// }

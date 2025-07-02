@@ -7,12 +7,33 @@ import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
   imports: [FormsModule, RouterLink, RouterModule, TranslocoDirective],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
-  @ViewChild('themeToggle') themeToggleRef!: ElementRef<HTMLInputElement>;
+  // @ViewChild('toggle') themeToggleRef!: ElementRef;
+  _themeToggleRef!: ElementRef;
+  @ViewChild('toggle')
+  set themeToggle(elementRef: ElementRef) {
+    if (elementRef) {
+      this._themeToggleRef = elementRef;
+
+      const isActivated: boolean | null = this.localStorage.getItem('isLightMode');
+      if (isActivated) {
+        this._themeToggleRef.nativeElement.checked = isActivated;
+        this.lightThemeActivated = isActivated;
+      } else {
+        this.lightThemeActivated = isActivated;
+      }
+    }
+  }
+  get themeToggleRef(): ElementRef {
+    return this._themeToggleRef;
+  }
+
+
   activeSection = 'Home';
   lightThemeActivated: boolean | null = false;
   isTopOnLight: boolean = false;
@@ -26,22 +47,37 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   ngOnInit(): void {
     this.setupInterSectionObserver()
     this.setActiveFragment();
-    // this.transloco.langChanges$.subscribe(lang => {
-    //   console.log(`Language changed to: ${lang}`);
-      
-    // });
   }
 
-  
+
 
   ngAfterViewInit() {
-    // Zugriff möglich ab hier, da das View-Element dann gerendert ist
-    const getTheme:boolean | null = this.localStorage.getItem('Theme');
-    this.lightThemeActivated = getTheme;
-    const isActivated = this.lightThemeActivated;
-    if (isActivated) {
-      this.themeToggleRef.nativeElement.checked = isActivated;
-    }
+    console.log('themeToggleRef:', this.themeToggleRef);
+
+    setTimeout(() => {
+      console.log('Ohne Ref');
+
+      if (this.themeToggleRef) {
+        console.log('themeToggleRef after timeout:', this.themeToggleRef);
+        // weitere Logik
+      }
+    }), 500;
+
+    // const getTheme: boolean | null = this.localStorage.getItem('isLightMode');
+    // this.lightThemeActivated = getTheme;
+    // const isActivated = this.lightThemeActivated;
+
+    // if (isActivated) {
+    //   this.themeToggleRef.nativeElement.checked = isActivated;
+    // }
+
+    // const isActivated:boolean | null = this.localStorage.getItem('isLightMode');
+    // if (isActivated) {
+    //   this.themeToggleRef.nativeElement.checked = isActivated;
+    //   this.lightThemeActivated = isActivated
+    // } else {
+    //   this.lightThemeActivated = isActivated;
+    // }
   }
 
   ngOnDestroy() {
@@ -54,7 +90,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
    * Sets the current theme preference in local storage based on the state of the theme toggle.
    * 
    * Retrieves the checked state from the theme toggle element and stores it in local storage
-   * under the key 'Theme'. This allows the user's theme preference to persist across sessions.
+   * under the key 'isLightMode'. This allows the user's theme preference to persist across sessions.
    *
    * @remarks
    * Assumes that `themeToggleRef` is a reference to a toggle input element and that
@@ -62,9 +98,11 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
    */
   setTheme() {
     const setTheme = this.themeToggleRef.nativeElement.checked;
+    console.log(this.themeToggleRef.nativeElement);
+
     this.lightThemeActivated = setTheme ? true : false;
     this.isTopOnLight = this.isOnRoot() ? true : false;
-    this.localStorage.setItem('Theme', setTheme);
+    this.localStorage.setItem('isLightMode', setTheme);
   }
 
   isOnRoot() {
@@ -72,7 +110,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     return (path === '' && !this.isTopOnLight && this.lightThemeActivated)
   }
 
-   setupInterSectionObserver() {
+  setupInterSectionObserver() {
     const options = {
       root: null,
       rootMargin: '-50% 0px -50% 0px', // Aktiviert wenn Section in der Mitte ist
@@ -85,7 +123,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
           const sectionID = entry.target.id;
           this.activeSection = sectionID || 'home';
           this.isTopOnLight = sectionID === 'home' && this.lightThemeActivated ? true : false;
-  
+
           // URL mit Location Service aktualisieren (ohne Navigation)
           const fragment = sectionID ? `#${sectionID}` : '';
           this.location.replaceState(`/${fragment}`);
@@ -116,19 +154,19 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   scrollTo(sectionId: string) {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ 
+      element.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
     } else if (sectionId === 'home') {
-      window.scrollTo({ 
-        top: 0, 
-        behavior: 'smooth' 
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
       });
     }
   }
 
-  changeLanguage(lang:string) {
+  changeLanguage(lang: string) {
     this.transloco.setActiveLang(lang);
     this.localStorage.setItem('language', lang)
   }

@@ -6,12 +6,27 @@ import { Injectable } from '@angular/core';
 export class SociallinksService {
 
   constructor() { }
-  socialLinks =
-    { 
-      github: 'https://github.com/Heiko-Lemmert',
-      linkedin: '',
-      mail: 'heiko.lemmert@gmail.com',
-      instagram: '',
-      facebook: '',
-    }
+  socialLinks = [
+    {
+      link: 'https://github.com/Heiko-Lemmert',
+      color: '#ffffff',
+      icon: 'ci-github',
+      iconLight:'ci-github-light'
+    },
+    {
+      link: '',
+      color: '#007BB6',
+      icon: 'ci-linkedin'
+    },
+    {
+      link: 'mailto:heiko.lemmert@outlook.com',
+      color: '#34A853',
+      icon: 'ci-gmail'
+    },
+    {
+      link: '',
+      color: '#C300DE',
+      icon: 'ci-instagram'
+    },
+  ]
 }

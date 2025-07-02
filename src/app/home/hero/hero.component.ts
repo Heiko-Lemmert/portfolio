@@ -12,9 +12,9 @@ import { TranslocoDirective } from '@jsverse/transloco';
   styleUrl: './hero.component.scss'
 })
 export class HeroComponent {
-  private social = inject(SociallinksService);
-  github = this.social.socialLinks.github;
-  linkedin = this.social.socialLinks.linkedin;
-  mailURL = 'mailto:' + this.social.socialLinks.mail;
-  nameString: string[] = ['Heiko Lemmert', 'Frontend Developer', 'Angular Enthusiast'];
+  // private social = inject(SociallinksService);
+  // github = this.social.socialLinks.github;
+  // linkedin = this.social.socialLinks.linkedin;
+  // mailURL = 'mailto:' + this.social.socialLinks.mail;
+  nameString: string[] = ['Heiko Lemmert', 'Frontend Developer', 'Tech Enthusiast'];
 }

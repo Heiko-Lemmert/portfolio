@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
@@ -7,19 +7,24 @@ import { TranslocoPipe } from '@jsverse/transloco';
   templateUrl: './skillcard.component.html',
   styleUrl: './skillcard.component.scss'
 })
-export class SkillcardComponent implements OnInit {
+export class SkillcardComponent implements OnInit, AfterViewInit {
   @Input() skill!: {
     name: string;
     icon: string;
     colored: string;
   }
   @Input() index!: number;
-  // isHovered = false;
   @ViewChild('skillCard') skillCardElem!: ElementRef;
   glowColor:string = 'cyan';
 
   ngOnInit(): void {
     this.glowColor = this.skill.colored;
+  }
+
+  ngAfterViewInit(): void {
+    // console.log('SkillCard ElemtRef:', this.skillCardElem);
+    
+    
   }
 
   @HostListener('mousemove', ['$event'])

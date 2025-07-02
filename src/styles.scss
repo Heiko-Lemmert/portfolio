@@ -187,6 +187,48 @@
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
+.social-nav li {
+  display: inline-block;
+}
+
+.social-nav a {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+  color: #FFF;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  line-height: 48px;
+  position: relative;
+  transition: 0.5s;
+}
+
+.social-btn li {
+  margin: 0 10px;
+}
+
+.social-btn a {
+  background: var(--color-base-100);
+  box-shadow: 0 0 4px 3px;
+  text-shadow: 0 0 1px #333;
+  transition: transform 0.4s, background 0.4s;
+  border-radius: 50%;
+}
+
+.social-btn a .ci {
+  transition: transform 1s;
+}
+
+.social-btn a:hover {
+  background: var(--color-base-content);
+}
+
+.social-btn a:hover .ci {
+  transform: rotate(-10deg) scale(3);
+}
+
 // Header
 
 .menu :where(li)>*:not(ul, .menu-title, details, .btn):active,

@@ -9,9 +9,18 @@
     <div class="flex-1 flex flex-col gap-4">
       <h2
         class="font-secondary text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-(--color-secondary) to-(--color-accent)">
-        {{ t('opener') }}</h2>
+        {{ t('opener') }}
+      </h2>
       <p class="text-base leading-relaxed text-balance mb-6"> {{ t('question') }} <br>
-        {{ t('answer') }} </p>
+        {{ t('answer') }}
+      </p>
+      <div class="{{ divider }}"></div>
+      <ul class="social-nav social-btn flex justify-center gap-4">
+        @for (social of socialData.socialLinks; track $index) {
+          <li><a [style.color]="social.color" [href]="social.link" target="_blank"><i [ngClass]="{'test': lightModeOn}" class="ci {{social.icon}}"></i></a></li>
+        }
+        <!-- <li><a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li> -->
+      </ul>
     </div>
     <div class="flex-1">
       <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" class="flex flex-col gap-3">
@@ -89,12 +98,14 @@
             }
         </div>
         <div class="form-group privacy-consent">
-          <div>
-            <input type="checkbox" id="privacy-consent" name="privacy-consent" class="checkbox validator" required
-              title="Required" />
-            <p class="validator-hint">Required</p>
+          <div class="flex flex-col items-center">
+            <input #privacy="ngModel" ngModel type="checkbox" id="privacy-consent" name="privacy-consent"
+              class="checkbox validator" required title="Required" />
+            @if(privacy.invalid && privacy.touched) {
+              <p class="validator-hint">Required</p>
+              }
           </div>
-          <label for="privacy-consent">
+          <label for="privacy-consent" class="text-wrap">
             {{ t('privacy-consent.pt.1') }}
             <a href="/datenschutzerklaerung" target="_blank"
               rel="noopener">{{ t('privacy-consent.pt.2') }}</a>
