@@ -64,6 +64,7 @@
   --noise: 1;
   --bg-glas: #0f172a90;
   --color-hover-text: #fff;
+  --color-hover-contact-bg: #fff;
 }
 
 @plugin "daisyui/theme" {
@@ -101,6 +102,7 @@
   --noise: 1;
   --bg-glas: #45688561;
   --color-hover-text: #000;
+  --color-hover-contact-bg: #000;
 }
 
 :root,
@@ -193,14 +195,13 @@
 
 .social-nav a {
   display: inline-block;
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
   font-size: 20px;
-  color: #FFF;
   text-decoration: none;
   cursor: pointer;
   text-align: center;
-  line-height: 48px;
+  line-height: 60px;
   position: relative;
   transition: 0.5s;
 }
@@ -222,7 +223,7 @@
 }
 
 .social-btn a:hover {
-  background: var(--color-base-content);
+  background: var(--color-base-300);
 }
 
 .social-btn a:hover .ci {

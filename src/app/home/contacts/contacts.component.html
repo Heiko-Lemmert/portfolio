@@ -16,10 +16,12 @@
       </p>
       <div class="{{ divider }}"></div>
       <ul class="social-nav social-btn flex justify-center gap-4">
-        @for (social of socialData.socialLinks; track $index) {
-          <li><a [style.color]="social.color" [href]="social.link" target="_blank"><i [ngClass]="{'test': lightModeOn}" class="ci {{social.icon}}"></i></a></li>
-        }
-        <!-- <li><a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a></li> -->
+        @for(social of socialData.socialLinks; track $index) {
+          <li>
+            <a [style.color]="lightModeActivated ? social.colorLight : social.color" [href]="social.link" target="_blank">
+              <i [ngClass]="lightModeActivated ? social.iconLight : social.icon"  class="ci ci-lg">
+              </i></a></li>
+          }
       </ul>
     </div>
     <div class="flex-1">

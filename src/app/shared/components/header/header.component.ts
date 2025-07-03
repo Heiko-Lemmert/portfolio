@@ -4,6 +4,8 @@ import { LocalStorageService } from '../../../services/local-storage.service';
 import { ActivatedRoute, RouterLink, RouterModule } from '@angular/router';
 import { Location } from '@angular/common';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
+import { GlobalDataService } from '../../../services/global-data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +15,18 @@ import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
+  private observer: IntersectionObserver | null = null;
+  private subscription!: Subscription;
+  private localStorage = inject(LocalStorageService);
+  private route = inject(ActivatedRoute);
+  private location = inject(Location);
+  private transloco = inject(TranslocoService);
+  private globalData = inject(GlobalDataService);
+  activeSection = 'Home';
+  lightThemeActivated: boolean = false;
+  isTopOnLight: boolean = false;
+  manuallySubscribedValue = false;
+
   // @ViewChild('toggle') themeToggleRef!: ElementRef;
   _themeToggleRef!: ElementRef;
   @ViewChild('toggle')
@@ -20,12 +34,8 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     if (elementRef) {
       this._themeToggleRef = elementRef;
 
-      const isActivated: boolean | null = this.localStorage.getItem('isLightMode');
-      if (isActivated) {
-        this._themeToggleRef.nativeElement.checked = isActivated;
-        this.lightThemeActivated = isActivated;
-      } else {
-        this.lightThemeActivated = isActivated;
+      if (this.lightThemeActivated) {
+        this._themeToggleRef.nativeElement.checked = this.lightThemeActivated;
       }
     }
   }
@@ -33,36 +43,15 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     return this._themeToggleRef;
   }
 
-
-  activeSection = 'Home';
-  lightThemeActivated: boolean | null = false;
-  isTopOnLight: boolean = false;
-  private observer: IntersectionObserver | null = null;
-
-  private localStorage = inject(LocalStorageService);
-  private route = inject(ActivatedRoute);
-  private location = inject(Location);
-  private transloco = inject(TranslocoService);
-
   ngOnInit(): void {
     this.setupInterSectionObserver()
     this.setActiveFragment();
+    this.setLightModeObserver();
   }
 
 
 
   ngAfterViewInit() {
-    console.log('themeToggleRef:', this.themeToggleRef);
-
-    setTimeout(() => {
-      console.log('Ohne Ref');
-
-      if (this.themeToggleRef) {
-        console.log('themeToggleRef after timeout:', this.themeToggleRef);
-        // weitere Logik
-      }
-    }), 500;
-
     // const getTheme: boolean | null = this.localStorage.getItem('isLightMode');
     // this.lightThemeActivated = getTheme;
     // const isActivated = this.lightThemeActivated;
@@ -84,6 +73,9 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     if (this.observer) {
       this.observer.disconnect();
     }
+    if(this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   /**
@@ -97,17 +89,22 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
    * `localStorage` is an object providing a `setItem` method compatible with the Web Storage API.
    */
   setTheme() {
-    const setTheme = this.themeToggleRef.nativeElement.checked;
-    console.log(this.themeToggleRef.nativeElement);
-
-    this.lightThemeActivated = setTheme ? true : false;
-    this.isTopOnLight = this.isOnRoot() ? true : false;
+    const setTheme:boolean = this.themeToggleRef.nativeElement.checked;
+    //this.isTopOnLight = this.isOnRoot();
+    this.globalData.setGlobalVariable(setTheme)
     this.localStorage.setItem('isLightMode', setTheme);
   }
 
   isOnRoot() {
     const path = this.location.path();
     return (path === '' && !this.isTopOnLight && this.lightThemeActivated)
+  }
+
+  setLightModeObserver() {
+    this.subscription = this.globalData.lightModeActivated$.subscribe(value => {
+      this.lightThemeActivated = value;
+      console.log('ComponentB: Global variable changed to ->:', value);
+    });
   }
 
   setupInterSectionObserver() {

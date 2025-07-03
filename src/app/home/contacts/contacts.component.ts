@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, inject, ElementRef, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { SociallinksService } from '../../services/sociallinks.service';
 import { LocalStorageService } from '../../services/local-storage.service';
+import { GlobalDataService } from '../../services/global-data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-contacts',
@@ -11,8 +13,9 @@ import { LocalStorageService } from '../../services/local-storage.service';
   templateUrl: './contacts.component.html',
   styleUrl: './contacts.component.scss'
 })
-export class ContactsComponent implements AfterViewInit {
+export class ContactsComponent implements OnInit, OnDestroy {
   private localService = inject(LocalStorageService);
+  private globalData = inject(GlobalDataService);
   socialData = inject(SociallinksService);
 
   contactData = {
@@ -26,15 +29,21 @@ export class ContactsComponent implements AfterViewInit {
   mailPattern: string = '^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$';
   email: string = '';
   divider = 'h-px bg-linear-to-r from-(--color-opacity) via-(--color-primary) to-(--color-opacity)';
-  lightModeOn: Boolean | null = false;
+  lightModeActivated: Boolean = false;
+  lightModeSub!:Subscription
 
-  ngAfterViewInit(): void {
-    this.lightModeOn = this.localService.getItem<Boolean>('isLightMode');
-    setTimeout(() => {
-      console.log('Light', this.lightModeOn);
-    }, 1000);
+  ngOnInit(): void {
+    this.lightModeSub = this.globalData.lightModeActivated$.subscribe(value => {
+      this.lightModeActivated = value;
+      console.log('Component contacts - light mode is:', this.lightModeActivated);
+    })
     
-    
+  }
+
+  ngOnDestroy(): void {
+    if (this.lightModeSub) {
+      this.lightModeSub.unsubscribe();
+    }
   }
 
   onSubmit(ngForm: NgForm) {
@@ -52,10 +61,6 @@ export class ContactsComponent implements AfterViewInit {
       control.markAsTouched({ onlySelf: true });
       control.markAsDirty({ onlySelf: true });
     });
-  }
-
-  isLightMode() {
-    this.lightModeOn = this.localService.getItem<Boolean>('isLightMode');
   }
 
 }
