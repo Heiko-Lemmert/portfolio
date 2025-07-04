@@ -28,7 +28,6 @@ export class ContactsComponent implements OnInit, OnDestroy {
   namePattern: string = '^[A-Za-zÄÖÜäöüß]+(?:[ \\-][A-Za-zÄÖÜäöüß]+)*$';
   mailPattern: string = '^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$';
   email: string = '';
-  divider = 'h-px bg-linear-to-r from-(--color-opacity) via-(--color-primary) to-(--color-opacity)';
   lightModeActivated: Boolean = false;
   lightModeSub!:Subscription
 

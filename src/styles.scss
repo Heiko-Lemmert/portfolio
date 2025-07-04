@@ -72,10 +72,14 @@
   default: false;
   prefersdark: false;
   color-scheme: "light";
-  --color-base-100: #ffffff;
-  --color-base-200: #f1f5f9;
-  --color-base-300: oklch(95% 0.01 240);
-  --color-base-content: oklch(20% 0.022 252.894);
+  // --color-base-100: #ffffff;
+  // --color-base-200: #f1f5f9;
+  // --color-base-300: oklch(95% 0.01 240);
+  // --color-base-content: oklch(20% 0.022 252.894);
+  --color-base-100: oklch(95.127% 0.007 260.731);
+  --color-base-200: oklch(93.299% 0.01 261.788);
+  --color-base-300: oklch(89.925% 0.016 262.749);
+  --color-base-content: oklch(32.437% 0.022 264.182);
   --color-primary: #34d29b;
   --color-primary-content: oklch(26% 0.079 36.259);
   --color-secondary: oklch(55% 0.15 250);
@@ -189,26 +193,22 @@
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
-.social-nav li {
-  display: inline-block;
-}
+// .social-nav li {
+//   display: inline-block;
+// }
 
-.social-nav a {
-  display: inline-block;
-  width: 60px;
-  height: 60px;
-  font-size: 20px;
-  text-decoration: none;
-  cursor: pointer;
-  text-align: center;
-  line-height: 60px;
-  position: relative;
-  transition: 0.5s;
-}
-
-.social-btn li {
-  margin: 0 10px;
-}
+// .social-nav a {
+//   display: inline-block;
+//   width: 60px;
+//   height: 60px;
+//   font-size: 20px;
+//   text-decoration: none;
+//   cursor: pointer;
+//   text-align: center;
+//   line-height: 60px;
+//   position: relative;
+//   transition: 0.5s;
+// }
 
 .social-btn a {
   background: var(--color-base-100);
@@ -297,9 +297,11 @@
 .ci-mindset {
   content: url('/images/continually-learning.svg');
 }
+
 .ci-scrum {
   content: url('/images/scrum.svg');
 }
+
 .ci-rest-api {
   content: url('/images/api.svg');
 }
@@ -320,25 +322,27 @@
 // Validator
 
 .invalid {
-	border: 1px solid;
+  border: 1px solid;
   border-color: color-mix(in oklab, var(--color-error) 80%, transparent) !important;
 }
+
 .valid {
-	border: 1px solid;
+  border: 1px solid;
   border-color: color-mix(in oklab, var(--color-success) 80%, transparent) !important;
 }
 
 .invalid:focus {
-	border: 1.5px var(--color-error) solid !important;
+  border: 1.5px var(--color-error) solid !important;
 }
+
 .valid:focus {
-	border: 1.5px var(--color-success) solid !important;
+  border: 1.5px var(--color-success) solid !important;
 }
 
 .invalid-txt:focus {
-	color: var(--color-error) !important;
-}
-.valid-txt:focus {
-	color: var(--color-success) !important;
+  color: var(--color-error) !important;
 }
 
+.valid-txt:focus {
+  color: var(--color-success) !important;
+}
