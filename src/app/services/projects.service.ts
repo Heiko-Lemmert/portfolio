@@ -13,7 +13,7 @@ export class ProjectsService {
       description: 'projects.project-cursed-kingdom',
       repositorie: 'https://github.com/Heiko-Lemmert/cursed_kingdom',
       live: '',
-      techstack: ['JavaScript', 'HTML', 'CSS'],
+      techstack: ['JavaScript', 'HTML', 'Bootstrap CSS'],
       cover: '/images/projects/crused-kingdom.png'
     },
     {
@@ -37,7 +37,7 @@ export class ProjectsService {
       description: 'projects.projet-upcoming',
       repositorie: '#',
       live: '#',
-      techstack: ['Angular', 'TypeScript', 'CSS'],
+      techstack: ['Angular', 'TypeScript', 'Tailwind CSS'],
       cover: '/images/projects/next-project.jpg'
     }
   ]

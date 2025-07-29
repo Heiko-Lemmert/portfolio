@@ -1,25 +1,31 @@
 <article [ngClass]="isOdd(index) ? 'lg:flex-row-reverse' : 'lg:flex-row'" class="flex flex-col w-full px-4">
   <div #text [ngClass]="isOdd(index) ? 'lg:items-end' : 'lg:items-start'" class="flex-1 flex flex-col gap-2 z-20 xl:justify-center">
-    <h3 [ngClass]="isOdd(index) ? 'pr-4' : 'pl-4'" class="text-(--color-secondary)">JavaScrip | CSS | HTML</h3>
+    <h3 [ngClass]="isOdd(index) ? 'pr-4' : 'pl-4'" class="text-(--color-secondary)">
+      @for (techstack of project.techstack; track $index) {
+        {{techstack}}
+        @if ($index > 0) {
+          |
+        }
+      }</h3>
     <h2 [ngClass]="isOdd(index) ? 'pr-4' : 'pl-4'" class="font-accent text-2xl font-bold">{{project.name}}</h2>
     <p #desc [ngClass]="{'animate-out': isHover}" class="project-desc font-secondary text-base xl:text-lg lg:w-[145%] xl:w-[125%] p-4 lg:p-6 glass-card text-pretty bg-(--bg-glas)">
       {{project.description | transloco}}
     </p>
-    <div class="mt-4 flex gap-4">
-      <button role="button" class="glass-button group px-8 py-4 rounded-lg font-secondary xl:text-xl transition-all duration-300 hover:scale-105">
+    <div class="mt-4 flex gap-6">
+      <button role="button" class="glass-button bg-secondary/40 group px-8 py-4 rounded-lg font-secondary xl:text-xl transition-all duration-300 hover:scale-105">
         <a href="" target="_blank">Live!</a>
       </button>
-      <button role="button" class="outline-button px-8 py-4 rounded-lg font-secondary xl:text-xl border-2 border-white/30 transition-all duration-300 hover:border-white/60 hover:bg-white/10">
+      <button role="button" class="border-(--color-primary)/40 px-8 py-4 rounded-lg font-secondary xl:text-xl border-2 transition-all duration-300 hover:border-(--color-primary)/80 hover:bg-(--color-primary)/10 hover:shadow-(--glas-shadow)">
         <a href="{{project.repositorie}}" target="_blank">Github</a>
       </button>
     </div>
   </div>
-  <div #img (mouseenter)="isHover = true" (mouseleave)="isHover = false" [ngClass]="{'scale-up': isHover}" class="project-img flex-1 z-10 flex justify-center mt-4 lg:mt-0">
-    <div class="h-[140px] md:h-[240px] xl:h-[350px] w-[250px] md:w-[420px] xl:w-[600px] relative flex">
+  <div #img [ngClass]="{'scale-up': isHover}" class="project-img flex-1 z-10 flex justify-center mt-4 lg:mt-0">
+    <div (mouseenter)="isHover = true" (mouseleave)="isHover = false" class="h-[140px] md:h-[240px] xl:h-[350px] w-[250px] md:w-[420px] xl:w-[600px] relative flex">
       <div [ngClass]="isOdd(index) ? 'top-2 right-2' : 'top-2 left-2'"
         class="absolute w-full h-full rounded-2xl bg-[repeating-linear-gradient(135deg,#00f0ff_0px,#00f0ff_2px,transparent_2px,transparent_8px)] z-0">
       </div>
-      <img class="h-full w-full relative z-10 rounded-2xl grayscale object-fill hover:filter-none" src="{{project.cover}}" alt="">
+      <img [ngClass]="{'none-filters': isHover}" class="h-full w-full relative z-10 rounded-2xl grayscale object-fill" src="{{project.cover}}" alt="">
     </div>
   </div>
 </article>

@@ -63,6 +63,7 @@
   --depth: 0;
   --noise: 1;
   --bg-glas: #0f172a90;
+  --glas-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
   --color-hover-text: #fff;
   --color-hover-contact-bg: #fff;
 }
@@ -105,6 +106,7 @@
   --depth: 0;
   --noise: 1;
   --bg-glas: #45688561;
+  --glas-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   --color-hover-text: #000;
   --color-hover-contact-bg: #000;
 }
@@ -163,7 +165,7 @@
 }
 
 .glass-button {
-  background: rgba(255, 255, 255, 0.1);
+  // background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);

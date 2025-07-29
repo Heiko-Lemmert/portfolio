@@ -8,6 +8,10 @@
   transform: scale(1.2);
 }
 
+.none-filters {
+  filter: none;
+}
+
 .project-desc {
   transform: translateX(0);
   transition: transform 0.3s ease-in-out, opacity 0.3s;
