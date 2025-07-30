@@ -10,4 +10,7 @@ import { TranslocoDirective } from '@jsverse/transloco';
 })
 export class FooterComponent {
 
+  date = new Date();
+  year = this.date.getFullYear();
+
 }
