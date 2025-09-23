@@ -112,14 +112,12 @@
           </div>
           <label for="privacy-consent" class="text-wrap">
             {{ t('privacy-consent.pt.1') }}
-            <a href="/datenschutzerklaerung" target="_blank"
+            <a class="text-(--color-warning) hover:underline" href="/datenschutzerklaerung" target="_blank"
               rel="noopener">{{ t('privacy-consent.pt.2') }}</a>
             {{ t('privacy-consent.pt.3') }}
           </label>
         </div>
-        <button type="submit" class="btn btn-dash btn-secondary">Absenden</button>
-
-
+        <button [disabled]="privacy.invalid" type="submit" class="btn btn-dash btn-secondary transition-opacity duration-300 ease-in-out opacity-50 disabled:opacity-50 enabled:opacity-100">Absenden</button>
       </form>
     </div>
   </div>
