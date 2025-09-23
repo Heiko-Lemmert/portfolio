@@ -3,7 +3,7 @@
     <h3 [ngClass]="isOdd(index) ? 'pr-4' : 'pl-4'" class="text-(--color-secondary)">
       @for (techstack of project.techstack; track $index) {
         {{techstack}}
-        @if ($index > 0) {
+        @if ($index < project.techstack.length - 1) {
           |
         }
       }</h3>
