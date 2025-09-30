@@ -6,6 +6,7 @@ import { SociallinksService } from '../../services/sociallinks.service';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { GlobalDataService } from '../../services/global-data.service';
 import { Subscription } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contacts',
@@ -17,6 +18,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
   private localService = inject(LocalStorageService);
   private globalData = inject(GlobalDataService);
   socialData = inject(SociallinksService);
+  http = inject(HttpClient);
 
   contactData = {
     name: "",
@@ -29,14 +31,14 @@ export class ContactsComponent implements OnInit, OnDestroy {
   mailPattern: string = '^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$';
   email: string = '';
   lightModeActivated: Boolean = false;
-  lightModeSub!:Subscription
+  lightModeSub!: Subscription
 
   ngOnInit(): void {
     this.lightModeSub = this.globalData.lightModeActivated$.subscribe(value => {
       this.lightModeActivated = value;
       console.log('Component contacts - light mode is:', this.lightModeActivated);
     })
-    
+
   }
 
   ngOnDestroy(): void {
@@ -45,9 +47,43 @@ export class ContactsComponent implements OnInit, OnDestroy {
     }
   }
 
+  mailTest = true;
+
+  post = {
+    endPoint: `https://${this.globalData.domain}/sendMail.php`,
+    body: (payload: any) => JSON.stringify(payload),
+    options: {
+      headers: {
+        'Content-Type': 'text/plain',
+        responseType: 'text',
+      },
+    },
+  };
+
+  // onSubmit(ngForm: NgForm) {
+  //   if (ngForm.valid && ngForm.submitted) {
+  //     console.log('Formular ist gültig!', this.contactData);
+  //   } else {
+  //     console.log('Formular ist ungültig.');
+  //     this.markAllAsTouched(ngForm);
+  //   }
+  // }
+
   onSubmit(ngForm: NgForm) {
-    if (ngForm.valid && ngForm.submitted) {
-      console.log('Formular ist gültig!', this.contactData);
+    if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
+      this.http.post(this.post.endPoint, this.post.body(this.contactData))
+        .subscribe({
+          next: (response) => {
+
+            ngForm.resetForm();
+          },
+          error: (error) => {
+            console.error(error);
+          },
+          complete: () => console.info('send post complete'),
+        });
+    } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
+      ngForm.resetForm();
     } else {
       console.log('Formular ist ungültig.');
       this.markAllAsTouched(ngForm);

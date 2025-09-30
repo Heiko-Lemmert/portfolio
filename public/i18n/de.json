@@ -57,7 +57,15 @@
       "pt.1": "Ich habe die ",
       "pt.2": "Datenschutzerklärung",
       "pt.3": " gelesen und bin damit einverstanden."
-    }
+    },
+    "error-name-req": "Hoppla! Der Name ist erforderlich.",
+    "error-name-length": "Ups! Der Name muss mindestens 3 Zeichen lang sein.",
+    "error-name-invalid": "Falsches Format! Der Name darf nur Buchstaben, Leerzeichen und Umlaute enthalten.",
+    "error-mail-req": "Bitte gib deine E-Mail-Adresse ein.",
+    "error-mail-invalid": "Das E-Mail-Format ist ungültig. (z.B. user@mail.com)",
+    "error-message-req": "Bitte gib deine Nachricht ein.",
+    "error-message-length": "Die Nachricht ist zu kurz. Gib mehr Details an. (min. 10 Zeichen)",
+    "error-privacy": "Erforderlich"
   },
   "imprint": {
     "title": "Impressum"

@@ -44,14 +44,13 @@
           @if(name.invalid && name.touched) {
             <p id="outlined_error_help" class="mt-1 ml-1 text-xs text-error">
               @if(name.errors?.['required']) {
-                <span class="font-medium">Hoppla!</span> Der Name ist erforderlich.
+                <span class="font-medium">{{ t('error-name-req') }}</span>
                 }
                 @if(name.errors?.['minlength']) {
-                  <span class="font-medium">Ups!</span> Der Name muss mindestens 3 Zeichen lang sein.
+                  <span class="font-medium">{{ t('error-name-length') }}</span>
                   }
                   @if(name.errors?.['pattern']) {
-                    <span class="font-medium">Falsches Format!</span> Der Name darf nur Buchstaben, Leerzeichen und
-                    Umlaute enthalten.
+                    <span class="font-medium">{{ t('error-name-invalid') }}</span>
                     }
             </p>
             }
@@ -71,10 +70,10 @@
           @if(mail.invalid && mail.touched) {
             <p id="outlined_error_help" class="mt-1 ml-1 text-xs text-error">
               @if(mail.errors?.['required']) {
-                <span class="font-medium">Bitte gib deine E-Mail-Adresse ein.</span>
+                <span class="font-medium">{{ t('error-mail-req') }}</span>
                 }
                 @if(mail.errors?.['email']) {
-                  <span class="font-medium">Das E-Mail-Format ist ungültig. (z.B. user&#64;mail.com)</span>
+                  <span class="font-medium">{{ t('error-mail-invalid') }}</span>
                   }
             </p>
             }
@@ -94,10 +93,10 @@
           @if(message.invalid && message.touched) {
             <p id="outlined_error_help" class="mt-1 ml-1 text-xs text-error">
               @if(message.errors?.['required']) {
-                <span class="font-medium">Bitte gib deine Nachricht ein.</span>
+                <span class="font-medium">{{ t('error-message-req') }}</span>
                 }
                 @if(message.errors?.['minlength']) {
-                  <span class="font-medium">Die Nachricht ist zu kurz. Gib mehr Details an. (min. 10 Zeichen)</span>
+                  <span class="font-medium">{{ t('error-message-length') }}</span>
                   }
             </p>
             }
@@ -107,7 +106,7 @@
             <input #privacy="ngModel" ngModel type="checkbox" id="privacy-consent" name="privacy-consent"
               class="checkbox validator" required title="Required" />
             @if(privacy.invalid && privacy.touched) {
-              <p class="validator-hint">Required</p>
+              <p class="validator-hint">{{ t('error-privacy') }}</p>
               }
           </div>
           <label for="privacy-consent" class="text-wrap">

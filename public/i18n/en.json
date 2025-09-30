@@ -57,7 +57,15 @@
       "pt.1": "I have read the ",
       "pt.2": "privacy policy",
       "pt.3": " and agree to it."
-    }
+    },
+    "error-name-req": "Oops! The name is required.",
+    "error-name-length": "Oops! The name must be at least 3 characters long.",
+    "error-name-invalid": "Incorrect format! The name may only contain letters, spaces, and umlauts.",
+    "error-mail-req": "Please enter your email address.",
+    "error-mail-invalid": "The email format is invalid. (e.g., user@mail.com)",
+    "error-message-req": "Please enter your message",
+    "error-message-length": "The message is too short. Please provide more details. (min. 10 characters)",
+    "error-privacy": "Required"
   },
   "imprint": {
     "title": "Imprint"

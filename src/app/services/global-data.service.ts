@@ -5,12 +5,13 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GlobalDataService {
+  readonly domain: string = 'lemmert.dev'
   private _lightModeActivated:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
   readonly lightModeActivated$:Observable<boolean> = this._lightModeActivated.asObservable()
 
   constructor() { }
 
-    // Methode, um den Wert der globalen Variable zu ändern
+  // Methode, um den Wert der globalen Variable zu ändern
   setGlobalVariable(newValue: boolean) {
     this._lightModeActivated.next(newValue);
   }
