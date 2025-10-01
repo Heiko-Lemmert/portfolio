@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GlobalDataService {
-  readonly domain: string = 'lemmert.dev'
+  readonly domain: string = 'https://lemmert.dev'
   private _lightModeActivated:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
   readonly lightModeActivated$:Observable<boolean> = this._lightModeActivated.asObservable()
 

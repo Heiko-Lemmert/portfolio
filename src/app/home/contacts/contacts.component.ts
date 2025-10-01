@@ -50,7 +50,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
   mailTest = true;
 
   post = {
-    endPoint: `https://${this.globalData.domain}/sendMail.php`,
+    endPoint: `${this.globalData.domain}/sendMail.php`,
     body: (payload: any) => JSON.stringify(payload),
     options: {
       headers: {
