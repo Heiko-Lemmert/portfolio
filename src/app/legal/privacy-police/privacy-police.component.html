@@ -9,109 +9,98 @@
     class="w-full animate-rotate-border max-w-3xl transition-all duration-500 ease-out transform-3d rounded-lg bg-conic/[from_var(--border-angle)] from-transparent via-(--color-accent) to-transparent from-80% via-90% to-100% p-px">
     <div class="flex flex-col gap-4 p-10 rounded-lg bg-(--color-base-100) border border-neutral-800 text-sm">
       <div class="flex justify-end text-sm">
-        <p>Stand: 30. September 2025</p>
+        <p>{{ t('date') }}</p>
       </div>
 
       <div class="flex flex-col gap-2">
-        <h2 class="font-semibold text-base text-(--color-accent)">Inhaltsübersicht</h2>
+        <h2 class="font-semibold text-base text-(--color-accent)">{{ t('index.contentView') }}</h2>
         <ul class="flex flex-col gap-2index list-disc">
-          <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="persona" class="index-link hover:underline">Verantwortlicher</a>
+          <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="persona"
+              class="index-link hover:underline">{{ t('index.persona') }}</a>
           </li>
-          <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="overview" class="index-link hover:underline">Übersicht der
-              Verarbeitungen</a></li>
-          <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="legalBases" class="index-link hover:underline">Maßgebliche
-              Rechtsgrundlagen</a></li>
+          <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="overview"
+              class="index-link hover:underline">{{ t('index.overview') }}</a></li>
+          <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="legalBases"
+              class="index-link hover:underline">{{ t('index.legalBases') }}</a></li>
           <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="safetyMeasures"
-              class="index-link">Sicherheitsmaßnahmen</a></li>
-          <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="dataTransfer" class="index-link hover:underline">Übermittlung von
-              personenbezogenen Daten</a></li>
+              class="index-link">{{ t('index.safetyMeasures') }}</a></li>
+          <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="dataTransfer"
+              class="index-link hover:underline">{{ t('index.dataTransfer') }}</a></li>
           <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="internationalDataTransfer"
-              class="index-link">Internationale Datentransfers</a></li>
-          <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="generalInformation" class="index-link hover:underline">Allgemeine
-              Informationen zur Datenspeicherung und Löschung</a></li>
-          <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="rightsPersona" class="index-link hover:underline">Rechte der
-              betroffenen Personen</a></li>
+              class="index-link">{{ t('index.internationalDataTransfer') }}</a></li>
+          <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="generalInformation"
+              class="index-link hover:underline">{{ t('index.generalInformation') }}</a></li>
+          <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="rightsPersona"
+              class="index-link hover:underline">{{ t('index.rightsPersona') }}</a></li>
           <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="onlineWebhosting"
-              class="index-link">Bereitstellung des Onlineangebots und Webhosting</a></li>
-          <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="contact" class="index-link hover:underline">Kontakt- und
-              Anfrageverwaltung</a></li>
-          <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="socialMedia" class="index-link hover:underline">Präsenzen in
-              sozialen Netzwerken (Social Media)</a></li>
+              class="index-link">{{ t('index.onlineWebhosting') }}</a></li>
+          <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="contact"
+              class="index-link hover:underline">{{ t('index.contact') }}</a></li>
+          <li><a [routerLink]="['/legal', 'privacy-policy']" fragment="socialMedia"
+              class="index-link hover:underline">{{ t('index.socialMedia') }}</a></li>
+        </ul>
+      </div>
+
+
+      <div class="flex flex-col gap-2">
+        <h2 id="persona" class="font-semibold text-base text-(--color-accent)">
+          {{ t('persona.header') }}</h2>
+        <p [innerHTML]="address"></p>
+        <p>{{ t('persona.mail') }}<a href="mailto:heiko.lemmert@outlook.com"
+            class="text-blue-600 hover:underline"> {{ globalData.mail }}</a></p>
+        <p>{{ t('persona.imprint') }} <a [href]="url"
+            class="text-blue-600 hover:underline">{{ globalData.domain }}/imprint</a></p>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h2 id="overview" class="font-semibold text-base text-(--color-accent)">
+          {{ t('overview.header') }}</h2>
+        <p>{{ t('overview.text') }}</p>
+        <h3 class="text-base italic">{{ t('overview.dataTypes') }}</h3>
+        <ul class="list-disc">
+          <li>{{ t('overview.list1.inventoryData') }}</li>
+          <li>{{ t('overview.list1.contactData') }}</li>
+          <li>{{ t('overview.list1.contentData') }}</li>
+          <li>{{ t('overview.list1.usageData') }}</li>
+          <li>{{ t('overview.list1.metaData') }}</li>
+          <li>{{ t('overview.list1.logData') }}</li>
+        </ul>
+        <h3 class="text-base italic">{{ t('overview.dataCategories') }}</h3>
+        <ul class="list-disc">
+          <li>{{ t('overview.list2.communication') }}</li>
+          <li>{{ t('overview.list2.user') }}</li>
+        </ul>
+
+        <h3 class="text-base italic">{{ t('overview.processing') }}</h3>
+        <ul class="list-disc">
+          <li>{{ t('overview.list3.communication') }}</li>
+          <li>{{ t('overview.list3.organisations') }}</li>
+          <li>{{ t('overview.list3.feedback') }}</li>
+          <li>{{ t('overview.list3.onlineOffering') }}</li>
+          <li>{{ t('overview.list3.information') }}</li>
+          <li>{{ t('overview.list3.puplic') }}</li>
         </ul>
       </div>
 
       <div class="flex flex-col gap-2">
-        <h2 id="persona" class="font-semibold text-base text-(--color-accent)">Verantwortlicher</h2>
-        <p>Heiko Lemmert<br>Rudolf-Diesel-Str. 11 A<br>89257 Illertissen</p>
-        <p>E-Mail-Adresse: <a href="mailto:heiko.lemmert@outlook.com"
-            class="text-blue-600 hover:underline">heiko.lemmert&#64;outlook.com</a></p>
-        <p>Impressum: <a [href]="url" class="text-blue-600 hover:underline">{{globalData.domain}}/imprint</a></p>
-      </div>
-      <div class="flex flex-col gap-2">
-        <h2 id="overview" class="font-semibold text-base text-(--color-accent)">Übersicht der Verarbeitungen</h2>
-        <p>Die nachfolgende Übersicht fasst die Arten der verarbeiteten Daten und die Zwecke ihrer Verarbeitung zusammen
-          und verweist auf die betroffenen Personen.</p>
-
-        <h3 class="text-base italic">Arten der verarbeiteten Daten</h3>
+        <h2 id="legalBases" class="font-semibold text-base text-(--color-accent)">
+          {{ t('relevantLegal.header') }}</h2>
+        <p>
+          <strong>{{ t('relevantLegal.paragraph-1.introduction') }}</strong>{{ t('relevantLegal.paragraph-1.text') }}
+        </p>
         <ul>
-          <li>Bestandsdaten.</li>
-          <li>Kontaktdaten.</li>
-          <li>Inhaltsdaten.</li>
-          <li>Nutzungsdaten.</li>
-          <li>Meta-, Kommunikations- und Verfahrensdaten.</li>
-          <li>Protokolldaten.</li>
+          <li>
+            <strong>{{ t('relevantLegal.paragraph-2.introduction') }}</strong>{{ t('relevantLegal.paragraph-2.text') }}
+          </li>
+          <li>
+            <strong>{{ t('relevantLegal.paragraph-3.introduction') }}</strong>{{ t('relevantLegal.paragraph-3.text') }}
+          </li>
         </ul>
-
-        <h3 class="text-base italic">Kategorien betroffener Personen</h3>
-        <ul>
-          <li>Kommunikationspartner.</li>
-          <li>Nutzer.</li>
-        </ul>
-
-        <h3 class="text-base italic">Zwecke der Verarbeitung</h3>
-        <ul>
-          <li>Kommunikation.</li>
-          <li>Organisations- und Verwaltungsverfahren.</li>
-          <li>Feedback.</li>
-          <li>Bereitstellung unseres Onlineangebotes und Nutzerfreundlichkeit.</li>
-          <li>Informationstechnische Infrastruktur.</li>
-          <li>Öffentlichkeitsarbeit.</li>
-        </ul>
-      </div>
-
-      <div class="flex flex-col gap-2">
-        <h2 id="legalBases" class="font-semibold text-base text-(--color-accent)">Maßgebliche Rechtsgrundlagen</h2>
-        <p><strong>Maßgebliche Rechtsgrundlagen nach der DSGVO: </strong>Im Folgenden erhalten Sie eine Übersicht der
-          Rechtsgrundlagen der DSGVO, auf deren Basis wir personenbezogene Daten verarbeiten. Bitte nehmen Sie zur
-          Kenntnis, dass neben den Regelungen der DSGVO nationale Datenschutzvorgaben in Ihrem bzw. unserem Wohn- oder
-          Sitzland gelten können. Sollten ferner im Einzelfall speziellere Rechtsgrundlagen maßgeblich sein, teilen wir
-          Ihnen diese in der Datenschutzerklärung mit.</p>
-        <ul>
-          <li><strong>Vertragserfüllung und vorvertragliche Anfragen (Art. 6 Abs. 1 S. 1 lit. b) DSGVO)</strong> - Die
-            Verarbeitung ist für die Erfüllung eines Vertrags, dessen Vertragspartei die betroffene Person ist, oder zur
-            Durchführung vorvertraglicher Maßnahmen erforderlich, die auf Anfrage der betroffenen Person erfolgen.</li>
-          <li><strong>Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO)</strong> - die Verarbeitung ist zur
-            Wahrung der berechtigten Interessen des Verantwortlichen oder eines Dritten notwendig, vorausgesetzt, dass
-            die
-            Interessen, Grundrechte und Grundfreiheiten der betroffenen Person, die den Schutz personenbezogener Daten
-            verlangen, nicht überwiegen.</li>
-        </ul>
-        <p><strong>Nationale Datenschutzregelungen in Deutschland: </strong>Zusätzlich zu den Datenschutzregelungen der
-          DSGVO gelten nationale Regelungen zum Datenschutz in Deutschland. Hierzu gehört insbesondere das Gesetz zum
-          Schutz vor Missbrauch personenbezogener Daten bei der Datenverarbeitung (Bundesdatenschutzgesetz – BDSG). Das
-          BDSG enthält insbesondere Spezialregelungen zum Recht auf Auskunft, zum Recht auf Löschung, zum
-          Widerspruchsrecht, zur Verarbeitung besonderer Kategorien personenbezogener Daten, zur Verarbeitung für andere
-          Zwecke und zur Übermittlung sowie automatisierten Entscheidungsfindung im Einzelfall einschließlich Profiling.
-          Ferner können Landesdatenschutzgesetze der einzelnen Bundesländer zur Anwendung gelangen.</p>
-        <p><strong>Hinweis auf Geltung DSGVO und Schweizer DSG: </strong>Diese Datenschutzhinweise dienen sowohl der
-          Informationserteilung nach dem Schweizer DSG als auch nach der Datenschutzgrundverordnung (DSGVO). Aus diesem
-          Grund bitten wir Sie zu beachten, dass aufgrund der breiteren räumlichen Anwendung und Verständlichkeit die
-          Begriffe der DSGVO verwendet werden. Insbesondere statt der im Schweizer DSG verwendeten Begriffe
-          „Bearbeitung"
-          von „Personendaten", "überwiegendes Interesse" und "besonders schützenswerte Personendaten" werden die in der
-          DSGVO verwendeten Begriffe „Verarbeitung" von „personenbezogenen Daten" sowie "berechtigtes Interesse" und
-          "besondere Kategorien von Daten" verwendet. Die gesetzliche Bedeutung der Begriffe wird jedoch im Rahmen der
-          Geltung des Schweizer DSG weiterhin nach dem Schweizer DSG bestimmt.</p>
+        <p>
+          <strong>{{ t('relevantLegal.paragraph-4.introduction') }}</strong>{{ t('relevantLegal.paragraph-4.text') }}
+        </p>
+        <p>
+          <strong>{{ t('relevantLegal.paragraph-5.introduction') }}</strong>{{ t('relevantLegal.paragraph-5.text') }}
+        </p>
       </div>
 
       <div class="flex flex-col gap-2">
@@ -143,7 +132,8 @@
       </div>
 
       <div class="flex flex-col gap-2">
-        <h2 id="dataTransfer" class="font-semibold text-base text-(--color-accent)">Übermittlung von personenbezogenen Daten</h2>
+        <h2 id="dataTransfer" class="font-semibold text-base text-(--color-accent)">Übermittlung von personenbezogenen
+          Daten</h2>
         <p>Im Rahmen unserer Verarbeitung von personenbezogenen Daten kommt es vor, dass diese an andere Stellen,
           Unternehmen, rechtlich selbstständige Organisationseinheiten oder Personen übermittelt beziehungsweise ihnen
           gegenüber offengelegt werden. Zu den Empfängern dieser Daten können z. B. mit IT-Aufgaben beauftragte
@@ -154,7 +144,8 @@
       </div>
 
       <div class="flex flex-col gap-2">
-        <h2 id="internationalDataTransfer" class="font-semibold text-base text-(--color-accent)">Internationale Datentransfers</h2>
+        <h2 id="internationalDataTransfer" class="font-semibold text-base text-(--color-accent)">Internationale
+          Datentransfers</h2>
         <p>Datenverarbeitung in Drittländern: Sofern wir Daten in ein Drittland (d. h. außerhalb der Europäischen Union
           (EU) oder des Europäischen Wirtschaftsraums (EWR)) übermitteln oder dies im Rahmen der Nutzung von Diensten
           Dritter oder der Offenlegung bzw. Übermittlung von Daten an andere Personen, Stellen oder Unternehmen
@@ -191,7 +182,8 @@
       </div>
 
       <div class="flex flex-col gap-2">
-        <h2 id="generalInformation" class="font-semibold text-base text-(--color-accent)">Allgemeine Informationen zur Datenspeicherung und Löschung</h2>
+        <h2 id="generalInformation" class="font-semibold text-base text-(--color-accent)">Allgemeine Informationen zur
+          Datenspeicherung und Löschung</h2>
         <p>Wir löschen personenbezogene Daten, die wir verarbeiten, gemäß den gesetzlichen Bestimmungen, sobald die
           zugrundeliegenden Einwilligungen widerrufen werden oder keine weiteren rechtlichen Grundlagen für die
           Verarbeitung bestehen. Dies betrifft Fälle, in denen der ursprüngliche Verarbeitungszweck entfällt oder die
@@ -232,7 +224,8 @@
       </div>
 
       <div class="flex flex-col gap-2">
-        <h2 id="rightsPersona" class="font-semibold text-base text-(--color-accent)">Rechte der betroffenen Personen</h2>
+        <h2 id="rightsPersona" class="font-semibold text-base text-(--color-accent)">Rechte der betroffenen Personen
+        </h2>
         <p>Rechte der betroffenen Personen aus der DSGVO: Ihnen stehen als Betroffene nach der DSGVO verschiedene Rechte
           zu, die sich insbesondere aus Art. 15 bis 21 DSGVO ergeben:</p>
         <ul>
@@ -271,7 +264,8 @@
       </div>
 
       <div class="flex flex-col gap-2">
-        <h2 id="onlineWebhosting" class="font-semibold text-base text-(--color-accent)">Bereitstellung des Onlineangebots und Webhosting</h2>
+        <h2 id="onlineWebhosting" class="font-semibold text-base text-(--color-accent)">Bereitstellung des
+          Onlineangebots und Webhosting</h2>
         <p>Wir verarbeiten die Daten der Nutzer, um ihnen unsere Online-Dienste zur Verfügung stellen zu können. Zu
           diesem
           Zweck verarbeiten wir die IP-Adresse des Nutzers, die notwendig ist, um die Inhalte und Funktionen unserer
@@ -349,7 +343,8 @@
       </div>
 
       <div class="flex flex-col gap-2">
-        <h2 id="socialMedia" class="font-semibold text-base text-(--color-accent)">Präsenzen in sozialen Netzwerken (Social Media)</h2>
+        <h2 id="socialMedia" class="font-semibold text-base text-(--color-accent)">Präsenzen in sozialen Netzwerken
+          (Social Media)</h2>
         <p>Wir unterhalten Onlinepräsenzen innerhalb sozialer Netzwerke und verarbeiten in diesem Rahmen Nutzerdaten, um
           mit den dort aktiven Nutzern zu kommunizieren oder Informationen über uns anzubieten.</p>
         <p>Wir weisen darauf hin, dass dabei Nutzerdaten außerhalb des Raumes der Europäischen Union verarbeitet werden

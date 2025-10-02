@@ -71,6 +71,76 @@
     "title": "Impressum"
   },
   "privacy": {
-    "title": "Datenschutzerklärung"
+    "title": "Datenschutzerklärung",
+    "date": "Stand: 30. September 2025",
+    "index": {
+      "contentView": "Inhaltsübersicht",
+      "persona": "Verantwortlicher",
+      "overview": "Übersicht der Verarbeitungen",
+      "legalBases": "Maßgebliche Rechtsgrundlagen",
+      "safetyMeasures": "Sicherheitsmaßnahmen",
+      "dataTransfer": "Übermittlung von personenbezogenen Daten",
+      "internationalDataTransfer": "Internationale Datentransfers",
+      "generalInformation": "Allgemeine Informationen zur Datenspeicherung und Löschung",
+      "rightsPersona": "Rechte der betroffenen Personen",
+      "onlineWebhosting": "Bereitstellung des Onlineangebots und Webhosting",
+      "contact": "Kontakt- und Anfrageverwaltung",
+      "socialMedia": "Präsenzen in sozialen Netzwerken (Social Media"
+    },
+    "persona": {
+      "header": "Verantwortlicher",
+      "mail": "E-Mail-Adresse:",
+      "imprint": "Impressum:"
+    },
+    "overview": {
+      "header": "Übersicht der Verarbeitungen",
+      "text": "Die nachfolgende Übersicht fasst die Arten der verarbeiteten Daten und die Zwecke ihrer Verarbeitung zusammen und verweist auf die betroffenen Personen.",
+      "dataTypes": "Arten der verarbeiteten Daten",
+      "list1": {
+        "inventoryData": "Bestandsdaten",
+        "contactData": "Kontaktdaten",
+        "contentData": "Inhaltsdaten",
+        "usageData": "Nutzungsdaten",
+        "metaData": "Meta-, Kommunikations- und Verfahrensdaten",
+        "logData": "Protokolldaten"
+      },
+      "dataCategories": "Kategorien betroffener Personen",
+      "list2": {
+        "communication": "Kommunikationspartner",
+        "user": "Nutzer"
+      },
+      "processing": "Zwecke der Verarbeitung",
+      "list3": {
+        "communication": "Kommunikation",
+        "organisations": "Organisations- und Verwaltungsverfahren",
+        "feedback": "Feedback",
+        "onlineOffering": "Bereitstellung unseres Onlineangebotes und Nutzerfreundlichkeit",
+        "information": "Informationstechnische Infrastruktur",
+        "puplic": "Öffentlichkeitsarbeit"
+      }
+    },
+    "relevantLegal": {
+      "header": "Maßgebliche Rechtsgrundlagen",
+      "paragraph-1": {
+        "introduction": "Maßgebliche Rechtsgrundlagen nach der DSGVO: ",
+        "text": "Im Folgenden erhalten Sie eine Übersicht der Rechtsgrundlagen der DSGVO, auf deren Basis wir personenbezogene Daten verarbeiten. Bitte nehmen Sie zur Kenntnis, dass neben den Regelungen der DSGVO nationale Datenschutzvorgaben in Ihrem bzw. unserem Wohn- oder Sitzland gelten können. Sollten ferner im Einzelfall speziellere Rechtsgrundlagen maßgeblich sein, teilen wir Ihnen diese in der Datenschutzerklärung mit."
+      },
+      "paragraph-2": {
+        "introduction": "Vertragserfüllung und vorvertragliche Anfragen (Art. 6 Abs. 1 S. 1 lit. b) DSGVO) - ",
+        "text": "Die Verarbeitung ist für die Erfüllung eines Vertrags, dessen Vertragspartei die betroffene Person ist, oder zur Durchführung vorvertraglicher Maßnahmen erforderlich, die auf Anfrage der betroffenen Person erfolgen."
+      },
+      "paragraph-3": {
+        "introduction": "Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO) - ",
+        "text": "die Verarbeitung ist zur Wahrung der berechtigten Interessen des Verantwortlichen oder eines Dritten notwendig, vorausgesetzt, dass die Interessen, Grundrechte und Grundfreiheiten der betroffenen Person, die den Schutz personenbezogener Daten verlangen, nicht überwiegen."
+      },
+      "paragraph-4": {
+        "introduction": "Nationale Datenschutzregelungen in Deutschland: ",
+        "text": "Zusätzlich zu den Datenschutzregelungen der DSGVO gelten nationale Regelungen zum Datenschutz in Deutschland. Hierzu gehört insbesondere das Gesetz zum Schutz vor Missbrauch personenbezogener Daten bei der Datenverarbeitung (Bundesdatenschutzgesetz – BDSG). Das BDSG enthält insbesondere Spezialregelungen zum Recht auf Auskunft, zum Recht auf Löschung, zum Widerspruchsrecht, zur Verarbeitung besonderer Kategorien personenbezogener Daten, zur Verarbeitung für andere Zwecke und zur Übermittlung sowie automatisierten Entscheidungsfindung im Einzelfall einschließlich Profiling. Ferner können Landesdatenschutzgesetze der einzelnen Bundesländer zur Anwendung gelangen."
+      },
+      "paragraph-5": {
+        "introduction": "Hinweis auf Geltung DSGVO und Schweizer DSG: ",
+        "text": "Diese Datenschutzhinweise dienen sowohl der Informationserteilung nach dem Schweizer DSG als auch nach der Datenschutzgrundverordnung (DSGVO). Aus diesem Grund bitten wir Sie zu beachten, dass aufgrund der breiteren räumlichen Anwendung und Verständlichkeit die Begriffe der DSGVO verwendet werden. Insbesondere statt der im Schweizer DSG verwendeten Begriffe „Bearbeitung\" von „Personendaten\", \"überwiegendes Interesse\" und \"besonders schützenswerte Personendaten\" werden die in der DSGVO verwendeten Begriffe \"Verarbeitung\" von \"personenbezogenen Daten\" sowie \"berechtigtes Interesse\" und \"besondere Kategorien von Daten\" verwendet. Die gesetzliche Bedeutung der Begriffe wird jedoch im Rahmen der Geltung des Schweizer DSG weiterhin nach dem Schweizer DSG bestimmt."
+      }
+    }
   }
 }

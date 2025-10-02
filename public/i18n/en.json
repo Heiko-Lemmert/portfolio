@@ -71,6 +71,76 @@
     "title": "Imprint"
   },
   "privacy": {
-    "title": "Privacy-Police"
+    "title": "Privacy-Police",
+    "date": "As of September 30, 2025",
+    "index": {
+      "contentView": "Table of contents",
+      "persona": "Person in charge",
+      "overview": "Overview of processing operations",
+      "legalBases": "Relevant legal basis",
+      "safetyMeasures": "Safety measures",
+      "dataTransfer": "Transfer of personal data",
+      "internationalDataTransfer": "International data transfers",
+      "generalInformation": "General information on data storage and deletion",
+      "rightsPersona": "Rights of data subjects",
+      "onlineWebhosting": "Provision of online services and web hosting",
+      "contact": "Contact and inquiry management",
+      "socialMedia": "Presence on social networks (social media)"
+    },
+    "persona": {
+      "header": "Person in charge",
+      "mail": "Email address:",
+      "imprint": "Imprint:"
+    },
+    "overview": {
+      "header": "Overview of processing operations",
+      "text": "The following overview summarizes the types of data processed and the purposes for which they are processed, and refers to the data subjects.",
+      "dataTypes": "Types of data processed",
+      "list1": {
+        "inventoryData": "Inventory data",
+        "contactData": "Contact data",
+        "contentData": "Content data",
+        "usageData": "Usage data",
+        "metaData": "Meta, communication, and procedural data",
+        "logData": "Log data"
+      },
+      "dataCategories": "Categories of data subjects",
+      "list2": {
+        "communication": "Communication partner",
+        "user": "Users"
+      },
+      "processing": "Purposes of processing",
+      "list3": {
+        "communication": "Communication",
+        "organisations": "Organizational and administrative procedures",
+        "feedback": "Feedback",
+        "onlineOffering": "Provision of our online offering and user-friendliness",
+        "information": "Information technology infrastructure",
+        "puplic": "Public relations"
+      }
+    },
+    "relevantLegal": {
+      "header": "Relevant legal basis",
+      "paragraph-1": {
+        "introduction": "Relevant legal basis under the GDPR: ",
+        "text": "Below you will find an overview of the legal basis of the GDPR on which we process personal data. Please note that, in addition to the provisions of the GDPR, national data protection regulations may apply in your or our country of residence or domicile. If more specific legal bases are applicable in individual cases, we will inform you of this in the privacy policy."
+      },
+      "paragraph-2": {
+        "introduction": "Contract fulfillment and pre-contractual inquiries (Art. 6 para. 1 sentence 1 lit. b) GDPR) - ",
+        "text": "The processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract."
+      },
+      "paragraph-3": {
+        "introduction": "Legitimate interests (Art. 6(1)(f) GDPR) - ",
+        "text": "processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data;"
+      },
+      "paragraph-4": {
+        "introduction": "National data protection regulations in Germany: ",
+        "text": "In addition to the data protection regulations of the GDPR, national data protection regulations apply in Germany. These include, in particular, the Act on the Protection against Misuse of Personal Data in Data Processing (Federal Data Protection Act – BDSG). The BDSG contains, in particular, special regulations on the right to information, the right to erasure, the right to object, the processing of special categories of personal data, processing for other purposes and transfer, as well as automated decision-making in individual cases, including profiling. Furthermore, state data protection laws of the individual federal states may also apply."
+      },
+      "paragraph-5": {
+        "introduction": "Reference to the applicability of the GDPR and Swiss DSG: ",
+        "text": "This privacy policy serves to provide information in accordance with both the Swiss Federal Act on Data Protection (FADP) and the General Data Protection Regulation (GDPR). For this reason, please note that the terms used in the GDPR are used for the sake of broader geographical application and comprehensibility. In particular, instead of the terms \"processing\" of \"personal data,\" \"overriding interest,\" and \"sensitive personal data\" used in the Swiss FADP, the terms \"processing\" of \"personal data,\" \"legitimate interest,\" and \"special categories of data\" used in the GDPR are used. However, the legal meaning of the terms will continue to be determined in accordance with the Swiss DSG within the scope of the Swiss DSG."
+      }
+    }
   }
 }

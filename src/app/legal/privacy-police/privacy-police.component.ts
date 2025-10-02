@@ -12,6 +12,7 @@ import { GlobalDataService } from '../../services/global-data.service';
 export class PrivacyPoliceComponent {
   readonly globalData = inject(GlobalDataService);
   url = `${this.globalData.domain}/imprint`
+  address = this.globalData.address;
 
 
 }
