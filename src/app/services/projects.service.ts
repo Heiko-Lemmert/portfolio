@@ -12,7 +12,7 @@ export class ProjectsService {
       name: 'Crused Kingdom',
       description: 'projects.project-cursed-kingdom',
       repositorie: 'https://github.com/Heiko-Lemmert/cursed_kingdom',
-      live: '',
+      live: 'https://cursed-kingdom.lemmert.dev/',
       techstack: ['JavaScript', 'HTML', 'Bootstrap CSS'],
       cover: '/images/projects/crused-kingdom.png'
     },
@@ -20,7 +20,7 @@ export class ProjectsService {
       name: 'Join',
       description: 'projects.project-join',
       repositorie: 'https://github.com/Heiko-Lemmert/join-project',
-      live: '',
+      live: 'https://join.lemmert.dev/',
       techstack: ['JavaScript', 'HTML', 'CSS', 'Firebase'],
       cover: '/images/projects/join.png'
     },
@@ -28,7 +28,7 @@ export class ProjectsService {
       name: 'PokeDex',
       description: 'projects.project-pokedex',
       repositorie: 'https://github.com/Heiko-Lemmert/PokeDex',
-      live: '',
+      live: 'https://pokedex.lemmert.dev/',
       techstack: ['JavaScript', 'HTML', 'CSS', 'API'],
       cover: '/images/projects/pokedex.png'
     },

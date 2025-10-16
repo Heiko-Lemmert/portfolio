@@ -17,16 +17,25 @@
               (click)="scrollTo('skills')">{{ t('skills') }}</a></li>
           <li><a routerLink="/" fragment="projects" class="nav-action" [class.active]="activeSection === 'projects'"
               (click)="scrollTo('projects')">{{ t('projects') }}</a></li>
-          <li><a routerLink="/" fragment="reviews" class="nav-action" [class.active]="activeSection === 'reviews'"
-              (click)="scrollTo('reviews')">{{ t('reviews') }}</a></li>
           <li><a routerLink="/" fragment="contacts" class="nav-action" [class.active]="activeSection === 'contacts'"
               (click)="scrollTo('contacts')">{{ t('connect') }}</a></li>
+          <li><a routerLink="/" fragment="reviews" class="nav-action" [class.active]="activeSection === 'reviews'"
+              (click)="scrollTo('reviews')">{{ t('reviews') }}</a></li>
         </ul>
       </div>
       <div class="flex-1 pl-4">
-        <a routerLink="/" >
-          <svg class="w-auto hidden md:block md:h-5 xl:h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 2.950000047683716 132.8000030517578 40.25" data-asc="0.858" ><defs/><g><g fill="#fff"><g transform="translate(0, 0)">
-            <path d="M0 25.70L0 21.30Q7.10 18.30 13.88 15.35Q20.65 12.40 27.75 9.35L27.75 13.80L5.10 23.50Q6.25 24.00 7.78 24.65Q9.30 25.30 11.80 26.40Q14.30 27.50 18.13 29.15Q21.95 30.80 27.75 33.25L27.75 37.70L0 25.70ZM59.85 5.35Q59.85 2.95 62.80 2.95Q65.80 2.95 65.80 5.35L65.80 40.80Q65.80 43.20 62.80 43.20Q59.85 43.20 59.85 40.80L59.85 5.35M44.65 40.80Q44.65 43.20 41.65 43.20Q38.70 43.20 38.70 40.80L38.70 5.35Q38.70 2.95 41.65 2.95Q44.65 2.95 44.65 5.35L44.65 40.80M56.35 22.25Q56.35 24.00 55.15 25.20Q53.95 26.40 52.20 26.40Q50.50 26.40 49.30 25.20Q48.10 24.00 48.10 22.25Q48.10 20.50 49.30 19.30Q50.50 18.10 52.20 18.10Q53.95 18.10 55.15 19.30Q56.35 20.50 56.35 22.25ZM76.25 42.95Q74.40 42.95 73.75 42Q73.10 41.05 73.10 39.90L73.10 5.35Q73.10 2.95 76 2.95Q79 2.95 79 5.35L79 37.90L95.70 37.90Q97.50 37.90 97.50 40.35Q97.60 42.95 95.70 42.95L76.25 42.95ZM105.05 37.70L105.05 33.25L127.80 23.55Q125.10 22.40 122.22 21.17Q119.35 19.95 116.45 18.70Q113.55 17.45 110.65 16.20Q107.75 14.95 105.05 13.80L105.05 9.35Q108.65 10.90 112.10 12.40Q115.55 13.90 118.95 15.37Q122.35 16.85 125.80 18.32Q129.25 19.80 132.80 21.30L132.80 25.70L105.05 37.70Z"/></g></g></g>
+        <a routerLink="/">
+          <svg class="w-auto hidden md:block md:h-5 xl:h-8" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 2.950000047683716 132.8000030517578 40.25" data-asc="0.858">
+            <defs />
+            <g>
+              <g fill="#fff">
+                <g transform="translate(0, 0)">
+                  <path
+                    d="M0 25.70L0 21.30Q7.10 18.30 13.88 15.35Q20.65 12.40 27.75 9.35L27.75 13.80L5.10 23.50Q6.25 24.00 7.78 24.65Q9.30 25.30 11.80 26.40Q14.30 27.50 18.13 29.15Q21.95 30.80 27.75 33.25L27.75 37.70L0 25.70ZM59.85 5.35Q59.85 2.95 62.80 2.95Q65.80 2.95 65.80 5.35L65.80 40.80Q65.80 43.20 62.80 43.20Q59.85 43.20 59.85 40.80L59.85 5.35M44.65 40.80Q44.65 43.20 41.65 43.20Q38.70 43.20 38.70 40.80L38.70 5.35Q38.70 2.95 41.65 2.95Q44.65 2.95 44.65 5.35L44.65 40.80M56.35 22.25Q56.35 24.00 55.15 25.20Q53.95 26.40 52.20 26.40Q50.50 26.40 49.30 25.20Q48.10 24.00 48.10 22.25Q48.10 20.50 49.30 19.30Q50.50 18.10 52.20 18.10Q53.95 18.10 55.15 19.30Q56.35 20.50 56.35 22.25ZM76.25 42.95Q74.40 42.95 73.75 42Q73.10 41.05 73.10 39.90L73.10 5.35Q73.10 2.95 76 2.95Q79 2.95 79 5.35L79 37.90L95.70 37.90Q97.50 37.90 97.50 40.35Q97.60 42.95 95.70 42.95L76.25 42.95ZM105.05 37.70L105.05 33.25L127.80 23.55Q125.10 22.40 122.22 21.17Q119.35 19.95 116.45 18.70Q113.55 17.45 110.65 16.20Q107.75 14.95 105.05 13.80L105.05 9.35Q108.65 10.90 112.10 12.40Q115.55 13.90 118.95 15.37Q122.35 16.85 125.80 18.32Q129.25 19.80 132.80 21.30L132.80 25.70L105.05 37.70Z" />
+                </g>
+              </g>
+            </g>
           </svg>
         </a>
       </div>
@@ -42,10 +51,10 @@
               (click)="scrollTo('skills')">{{ t('skills') }}</a></li>
           <li><a routerLink="/" fragment="projects" class="nav-action" [class.active]="activeSection === 'projects'"
               (click)="scrollTo('projects')">{{ t('projects') }}</a></li>
-          <li><a routerLink="/" fragment="reviews" class="nav-action" [class.active]="activeSection === 'reviews'"
-              (click)="scrollTo('reviews')">{{ t('reviews') }}</a></li>
           <li><a routerLink="/" fragment="contacts" class="nav-action" [class.active]="activeSection === 'contacts'"
               (click)="scrollTo('contacts')">{{ t('connect') }}</a></li>
+          <li><a routerLink="/" fragment="reviews" class="nav-action" [class.active]="activeSection === 'reviews'"
+              (click)="scrollTo('reviews')">{{ t('reviews') }}</a></li>
         </ul>
       </div>
       <div class="divider divider-horizontal"></div>
@@ -73,7 +82,8 @@
           <ul tabindex="0"
             class="dropdown-content menu rounded-box dropdown-content-language z-1 mt-4 w-auto p-2 shadow-sm bg-dropdown">
             <li class="active:bg-transparent">
-              <a class="hover:bg-transparent active:bg-transparent animate-rotate-center" (click)="changeLanguage('en')">
+              <a class="hover:bg-transparent active:bg-transparent animate-rotate-center"
+                (click)="changeLanguage('en')">
                 <svg class="xl:h-8 xl:w-8" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision"
                   text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd"
                   clip-rule="evenodd" viewBox="0 0 512 512" width="24px" height="24px">

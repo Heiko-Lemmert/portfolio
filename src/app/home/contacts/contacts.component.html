@@ -29,7 +29,7 @@
     </div>
     <div class="flex-1">
       <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" class="flex flex-col gap-3">
-        <div id="name-field">
+        <div id="">
           <div class="relative">
             <input type="text" id="name-input" #name="ngModel"
               [ngClass]="{'invalid': name.invalid && name.dirty, 'valid': name.valid}" [(ngModel)]="contactData.name"
@@ -55,7 +55,7 @@
             </p>
             }
         </div>
-        <div id="mail-field">
+        <div id="">
           <div class="relative">
             <input id="mail-input" #mail="ngModel"
               [ngClass]="{'invalid': mail.invalid && mail.dirty, 'valid': mail.valid}" [(ngModel)]="contactData.mail"
@@ -78,7 +78,7 @@
             </p>
             }
         </div>
-        <div id="message-field">
+        <div id="">
           <div class="relative">
             <textarea type="text" id="message-input" #message="ngModel"
               [ngClass]="{'invalid': message.invalid && message.dirty, 'valid': message.valid}"

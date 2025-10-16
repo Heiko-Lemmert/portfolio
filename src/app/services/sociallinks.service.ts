@@ -15,7 +15,7 @@ export class SociallinksService {
       iconLight:'ci-github'
     },
     {
-      link: '',
+      link: 'https://www.linkedin.com/in/heiko-l-0b9bb3387/',
       color: '#007BB6',
       colorLight: '#007BB6',
       icon: 'ci-linkedin',

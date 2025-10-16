@@ -85,7 +85,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
     } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
       ngForm.resetForm();
     } else {
-      console.log('Formular ist ungültig.');
+      console.error('Formular ist ungültig.');
       this.markAllAsTouched(ngForm);
     }
   }
