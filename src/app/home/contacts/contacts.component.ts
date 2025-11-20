@@ -32,6 +32,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
   email: string = '';
   lightModeActivated: Boolean = false;
   lightModeSub!: Subscription
+  mailTest = false;
 
   ngOnInit(): void {
     this.lightModeSub = this.globalData.lightModeActivated$.subscribe(value => {
@@ -47,8 +48,6 @@ export class ContactsComponent implements OnInit, OnDestroy {
     }
   }
 
-  mailTest = true;
-
   post = {
     endPoint: `${this.globalData.domain}/sendMail.php`,
     body: (payload: any) => JSON.stringify(payload),
@@ -59,15 +58,6 @@ export class ContactsComponent implements OnInit, OnDestroy {
       },
     },
   };
-
-  // onSubmit(ngForm: NgForm) {
-  //   if (ngForm.valid && ngForm.submitted) {
-  //     console.log('Formular ist gültig!', this.contactData);
-  //   } else {
-  //     console.log('Formular ist ungültig.');
-  //     this.markAllAsTouched(ngForm);
-  //   }
-  // }
 
   onSubmit(ngForm: NgForm) {
     if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {

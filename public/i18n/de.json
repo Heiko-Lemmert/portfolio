@@ -65,7 +65,8 @@
     "error-mail-invalid": "Das E-Mail-Format ist ungültig. (z.B. user@mail.com)",
     "error-message-req": "Bitte gib deine Nachricht ein.",
     "error-message-length": "Die Nachricht ist zu kurz. Gib mehr Details an. (min. 10 Zeichen)",
-    "error-privacy": "Erforderlich"
+    "error-privacy": "Erforderlich",
+    "sendbutton" : "Absenden"
   },
   "imprint": {
     "title": "Impressum"

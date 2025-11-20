@@ -65,7 +65,8 @@
     "error-mail-invalid": "The email format is invalid. (e.g., user@mail.com)",
     "error-message-req": "Please enter your message",
     "error-message-length": "The message is too short. Please provide more details. (min. 10 characters)",
-    "error-privacy": "Required"
+    "error-privacy": "Required",
+    "sendbutton" : "Submit"
   },
   "imprint": {
     "title": "Imprint"
