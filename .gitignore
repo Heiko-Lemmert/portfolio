@@ -45,3 +45,9 @@ Thumbs.db
 /themes
 tailwind.config.js.old
 styles.css
+
+# PHP Mailer
+/vendor
+composer.json
+composer.lock
+sendMail-bak2.php

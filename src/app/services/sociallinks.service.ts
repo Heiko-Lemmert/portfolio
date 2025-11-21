@@ -29,7 +29,7 @@ export class SociallinksService {
       iconLight: 'ci-gmail'
     },
     {
-      link: '',
+      link: 'https://www.instagram.com/x_stormbreaker_x/',
       color: '#C300DE',
       colorLight: '#C300DE',
       icon: 'ci-instagram',

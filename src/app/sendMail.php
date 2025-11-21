@@ -14,11 +14,11 @@ switch ($_SERVER['REQUEST_METHOD']) {
             //parse the Payload from text format to Object
             $params = json_decode($json);
     
-            $email = $params->email;
+            $email = $params->mail;
             $name = $params->name;
             $message = $params->message;
     
-            $recipient = 'heiko.lemmert@outlook.com';  
+            $recipient = 'dlemmert@posteo.de';  
             $subject = "Contact From <$email>";
             $message = "From:" . $name . "<br>" . $message ;
     
