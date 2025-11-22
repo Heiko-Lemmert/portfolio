@@ -27,7 +27,6 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   isTopOnLight: boolean = false;
   manuallySubscribedValue = false;
 
-  // @ViewChild('toggle') themeToggleRef!: ElementRef;
   _themeToggleRef!: ElementRef;
   @ViewChild('toggle')
   set themeToggle(elementRef: ElementRef) {
@@ -52,21 +51,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 
 
   ngAfterViewInit() {
-    // const getTheme: boolean | null = this.localStorage.getItem('isLightMode');
-    // this.lightThemeActivated = getTheme;
-    // const isActivated = this.lightThemeActivated;
 
-    // if (isActivated) {
-    //   this.themeToggleRef.nativeElement.checked = isActivated;
-    // }
-
-    // const isActivated:boolean | null = this.localStorage.getItem('isLightMode');
-    // if (isActivated) {
-    //   this.themeToggleRef.nativeElement.checked = isActivated;
-    //   this.lightThemeActivated = isActivated
-    // } else {
-    //   this.lightThemeActivated = isActivated;
-    // }
   }
 
   ngOnDestroy() {
@@ -90,7 +75,6 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
    */
   setTheme() {
     const setTheme:boolean = this.themeToggleRef.nativeElement.checked;
-    //this.isTopOnLight = this.isOnRoot();
     this.globalData.setGlobalVariable(setTheme)
     this.localStorage.setItem('isLightMode', setTheme);
   }
@@ -103,7 +87,6 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   setLightModeObserver() {
     this.subscription = this.globalData.lightModeActivated$.subscribe(value => {
       this.lightThemeActivated = value;
-      console.log('ComponentB: Global variable changed to ->:', value);
     });
   }
 

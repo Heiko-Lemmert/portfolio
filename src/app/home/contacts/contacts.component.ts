@@ -31,13 +31,13 @@ export class ContactsComponent implements OnInit, OnDestroy {
   mailPattern: string = '^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$';
   email: string = '';
   lightModeActivated: Boolean = false;
-  lightModeSub!: Subscription
+  lightModeSub!: Subscription;
+  sendMail: Boolean = false;
   mailTest = false;
 
   ngOnInit(): void {
     this.lightModeSub = this.globalData.lightModeActivated$.subscribe(value => {
       this.lightModeActivated = value;
-      console.log('Component contacts - light mode is:', this.lightModeActivated);
     })
 
   }
@@ -64,7 +64,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
       this.http.post(this.post.endPoint, this.post.body(this.contactData))
         .subscribe({
           next: (response) => {
-            
+            this.showToast();
             ngForm.resetForm();
           },
           error: (error) => {
@@ -74,6 +74,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
         });
     } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
       ngForm.resetForm();
+      this.showToast()
     } else {
       console.error('Formular ist ungültig.');
       this.markAllAsTouched(ngForm);
@@ -88,4 +89,10 @@ export class ContactsComponent implements OnInit, OnDestroy {
     });
   }
 
+  showToast() {
+    this.sendMail = true;
+    setTimeout(() => {
+      this.sendMail = false;
+    }, 2500)
+  }
 }

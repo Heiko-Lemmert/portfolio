@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.setupLanguage();
     this.setupTheme();
-    console.log('App Component wird geladen');
   }
 
   setupTheme() {
