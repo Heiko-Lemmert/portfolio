@@ -129,6 +129,7 @@
   --color-light-glas: rgba(255, 255, 255, 0.05);
   --color-dark-glas: rgb(0 0 0 / 50%);
   --color-navy-glas: #0f172a15;
+  --hero-glas: #0f172a90;
 }
 
 // Animation
@@ -199,23 +200,6 @@
 .custom-gap {
     margin: calc(15px + var(--header-height));
 }
-
-// .social-nav li {
-//   display: inline-block;
-// }
-
-// .social-nav a {
-//   display: inline-block;
-//   width: 60px;
-//   height: 60px;
-//   font-size: 20px;
-//   text-decoration: none;
-//   cursor: pointer;
-//   text-align: center;
-//   line-height: 60px;
-//   position: relative;
-//   transition: 0.5s;
-// }
 
 .social-btn a {
   background: var(--color-base-100);
@@ -305,12 +289,28 @@
   content: url('/images/continually-learning.svg');
 }
 
+.ci-mindset-light {
+  content: url('/images/continually-learning-light.svg');
+}
+
 .ci-scrum {
   content: url('/images/scrum.svg');
 }
 
+.ci-scrum-light {
+  content: url('/images/scrum-light.svg');
+}
+
 .ci-rest-api {
   content: url('/images/api.svg');
+}
+
+.ci-rest-api-light {
+  content: url('/images/api-light.svg');
+}
+
+.ci-tailwindcss-dark {
+  content: url('/images/tailwind-dark.svg');
 }
 
 // Tooltip

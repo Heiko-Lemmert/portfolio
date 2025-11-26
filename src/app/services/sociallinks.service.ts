@@ -11,8 +11,8 @@ export class SociallinksService {
       link: 'https://github.com/Heiko-Lemmert',
       color: '#ffffff',
       colorLight: '#000',
-      icon: 'ci-github-light',
-      iconLight:'ci-github'
+      icon: 'ci-github',
+      iconLight:'ci-github-light'
     },
     {
       link: 'https://www.linkedin.com/in/heiko-l-0b9bb3387/',

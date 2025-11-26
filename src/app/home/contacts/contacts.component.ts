@@ -19,14 +19,12 @@ export class ContactsComponent implements OnInit, OnDestroy {
   private globalData = inject(GlobalDataService);
   socialData = inject(SociallinksService);
   http = inject(HttpClient);
-
   contactData = {
     name: "",
     mail: "",
     message: ""
   }
-
-
+  
   namePattern: string = '^[A-Za-zÄÖÜäöüß]+(?:[ \\-][A-Za-zÄÖÜäöüß]+)*$';
   mailPattern: string = '^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$';
   email: string = '';

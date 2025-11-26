@@ -25,7 +25,9 @@
       <div [ngClass]="isOdd(index) ? 'top-2 right-2' : 'top-2 left-2'"
         class="absolute w-full h-full rounded-2xl bg-[repeating-linear-gradient(135deg,#00f0ff_0px,#00f0ff_2px,transparent_2px,transparent_8px)] z-0">
       </div>
-      <img [ngClass]="{'none-filters': isHover}" class="h-full w-full relative z-10 rounded-2xl grayscale object-fill" src="{{project.cover}}" alt="">
+      <a href="{{project.live}}" target="_blank">
+        <img [ngClass]="{'none-filters': isHover}" class="h-full w-full relative z-10 rounded-2xl grayscale object-fill" src="{{project.cover}}" alt="">
+      </a>
     </div>
   </div>
 </article>
