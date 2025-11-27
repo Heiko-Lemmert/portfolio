@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy {
   private observer: IntersectionObserver | null = null;
   private subscription!: Subscription;
   private localStorage = inject(LocalStorageService);
@@ -48,12 +48,6 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     this.setLightModeObserver();
   }
 
-
-
-  ngAfterViewInit() {
-
-  }
-
   ngOnDestroy() {
     if (this.observer) {
       this.observer.disconnect();
@@ -77,6 +71,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     const setTheme:boolean = this.themeToggleRef.nativeElement.checked;
     this.globalData.setGlobalVariable(setTheme)
     this.localStorage.setItem('isLightMode', setTheme);
+    this.isTopOnLight = this.activeSection === 'home' && this.lightThemeActivated;
   }
 
   isOnRoot() {
@@ -93,7 +88,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   setupInterSectionObserver() {
     const options = {
       root: null,
-      rootMargin: '-50% 0px -50% 0px', // Aktiviert wenn Section in der Mitte ist
+      rootMargin: '-50% 0px -50% 0px',
       threshold: 0
     };
 
@@ -102,16 +97,14 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
         if (entry.isIntersecting) {
           const sectionID = entry.target.id;
           this.activeSection = sectionID || 'home';
-          this.isTopOnLight = sectionID === 'home' && this.lightThemeActivated ? true : false;
+          this.isTopOnLight = this.activeSection === 'home' && this.lightThemeActivated;
 
-          // URL mit Location Service aktualisieren (ohne Navigation)
           const fragment = sectionID ? `#${sectionID}` : '';
           this.location.replaceState(`/${fragment}`);
         }
       });
     }, options);
 
-    // Alle Sections observieren
     setTimeout(() => {
       const sections = document.querySelectorAll('section[id], div[id]');
       sections.forEach(section => {

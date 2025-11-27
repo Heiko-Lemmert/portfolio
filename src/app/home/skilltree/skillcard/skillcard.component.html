@@ -10,15 +10,15 @@
     <div #skillCard [style.--theme-color]="glowColor"
       class="bg-(--bg-glas) glass-card mouse-cursor-gradient-tracking flex flex-col items-center justify-evenly size-[150px]">
       <i [ngClass]="lightModeActivated ? skill.icon : skill.iconLight"
-      class="ci ci-2xl"></i>
-      <span>{{ skill.name }}</span>
+      class="ci ci-3x"></i>
+      <span class="hidden md:block">{{ skill.name }}</span>
     </div>
   </div>
   } @else {
    <div #skillCard [style.--theme-color]="glowColor"
     class="bg-(--bg-glas) glass-card mouse-cursor-gradient-tracking flex flex-col items-center justify-evenly size-[150px]">
     <i [ngClass]="lightModeActivated ? skill.icon : skill.iconLight" 
-    class="ci ci-2xl"></i>
-    <span>{{ skill.name }}</span>
+    class="ci ci-3x"></i>
+    <span class="hidden md:block">{{ skill.name }}</span>
   </div>
   }
