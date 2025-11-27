@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private location = inject(Location);
   private transloco = inject(TranslocoService);
   private globalData = inject(GlobalDataService);
-  activeSection = 'Home';
+  activeSection = 'home';
   /** Whether the light theme is currently activated. */
   lightThemeActivated: boolean = false;
   /** Whether the top section is shown with light theme. */
@@ -78,7 +78,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
    */
   setTheme() {
     const setTheme: boolean = this.themeToggleRef.nativeElement.checked;
-    this.globalData.setGlobalVariable(setTheme)
+    this.globalData.setGlobalVariable(setTheme);
     this.localStorage.setItem('isLightMode', setTheme);
     this.isTopOnLight = this.activeSection === 'home' && this.lightThemeActivated;
   }
@@ -139,10 +139,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const sectionID = entry.target.id;
-        this.activeSection = sectionID || 'home';
-        this.isTopOnLight = this.activeSection === 'home' && this.lightThemeActivated;
-        const fragment = sectionID ? `#${sectionID}` : '';
-        this.location.replaceState(`/${fragment}`);
+        if (sectionID && sectionID !== 'toast-default') {
+          this.activeSection = sectionID || 'home';
+          this.isTopOnLight = this.activeSection === 'home' && this.lightThemeActivated;
+          const fragment = sectionID ? `#${sectionID}` : '';
+          this.location.replaceState(`/${fragment}`);
+        }
       }
     });
   }
