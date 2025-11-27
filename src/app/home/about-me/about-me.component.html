@@ -10,7 +10,8 @@
         class="avatar-wrapper flex justify-center items-center size-(--img-mobil) md:size-(--img-tablet) xl:size-(--img-desktop) mx-auto md:mx-0 relative">
         <div #avatar [ngClass]="{'scale-up': startScale}"
           class="backdrop-blur-lg avatar overflow-hidden w-1/2 h-1/2 scale-up-center border-4 border-(--color-primary) rounded-[3rem] border-dotted z-20">
-          <img class="object-cover" src="/images/avatar.png" alt="" srcset="">
+          <img class="avatar-bg" src="/images/avatar-bg.png" alt="avatar-background">
+          <img class="avatar-fg" src="/images/avatar.png" alt="avatar">
         </div>
         <div class="h-full w-full contents">
           <div

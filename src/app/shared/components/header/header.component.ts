@@ -46,15 +46,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.setupInterSectionObserver()
     this.setActiveFragment();
     this.setLightModeObserver();
+    window.addEventListener('resize', () => this.reinitObserver());
   }
 
   ngOnDestroy() {
     if (this.observer) {
       this.observer.disconnect();
     }
-    if(this.subscription) {
+    if (this.subscription) {
       this.subscription.unsubscribe();
     }
+    window.removeEventListener('resize', () => this.reinitObserver());
   }
 
   /**
@@ -68,7 +70,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
    * `localStorage` is an object providing a `setItem` method compatible with the Web Storage API.
    */
   setTheme() {
-    const setTheme:boolean = this.themeToggleRef.nativeElement.checked;
+    const setTheme: boolean = this.themeToggleRef.nativeElement.checked;
     this.globalData.setGlobalVariable(setTheme)
     this.localStorage.setItem('isLightMode', setTheme);
     this.isTopOnLight = this.activeSection === 'home' && this.lightThemeActivated;
@@ -86,9 +88,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   setupInterSectionObserver() {
+    const viewportHeight = window.innerHeight;
+    const halfViewport = viewportHeight / 2;
     const options = {
       root: null,
-      rootMargin: '-50% 0px -50% 0px',
+      rootMargin: `-${halfViewport}px 0px -${halfViewport}px 0px`,
       threshold: 0
     };
 
@@ -99,6 +103,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
           this.activeSection = sectionID || 'home';
           this.isTopOnLight = this.activeSection === 'home' && this.lightThemeActivated;
 
+
           const fragment = sectionID ? `#${sectionID}` : '';
           this.location.replaceState(`/${fragment}`);
         }
@@ -106,7 +111,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }, options);
 
     setTimeout(() => {
-      const sections = document.querySelectorAll('section[id], div[id]');
+      const sections = document.querySelectorAll('section[id], div[id]:not(#toast-default)');
       sections.forEach(section => {
         if (this.observer) {
           this.observer.observe(section);
@@ -114,6 +119,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
       });
     }, 100);
   };
+
+  private reinitObserver() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+    this.setupInterSectionObserver();
+  }
 
   setActiveFragment() {
     this.route.fragment.subscribe(fragment => {

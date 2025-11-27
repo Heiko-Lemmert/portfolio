@@ -11,3 +11,14 @@
 .avatar.scale-up {
   transform: scale(1.5);
 }
+
+.avatar-bg {
+  position: absolute;
+  z-index: 5;
+  opacity: 0.5;
+}
+
+.avatar-fg {
+  position: absolute;
+  z-index: 10;
+}
