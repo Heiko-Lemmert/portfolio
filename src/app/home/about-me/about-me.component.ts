@@ -10,11 +10,27 @@ import { TranslocoDirective } from '@jsverse/transloco';
   styleUrl: './about-me.component.scss'
 })
 export class AboutMeComponent {
+  /**
+   * Reference to the avatar container element in the template.
+   * Used to determine the avatar's position and size for hover calculations.
+   * @type {ElementRef<HTMLDivElement>}
+   */
   @ViewChild('avatar')
   avatar!: ElementRef<HTMLDivElement>;
-  
+
+  /**
+   * Flag indicating whether the scale animation should start.
+   * true = mouse is over the avatar.
+   */
   startScale = false;
 
+  /**
+   * HostListener, der auf `mousemove` reagiert und prüft, ob sich der Mauszeiger
+   * innerhalb der Begrenzungen des Avatar-Elements befindet. Wenn ja, wird
+   * `startScale` auf `true` gesetzt, andernfalls auf `false`.
+   *
+   * @param {MouseEvent} event - Das Mausereignis mit Client-Koordinaten.
+   */
   @HostListener('mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {
     const target = this.avatar.nativeElement.getBoundingClientRect()
@@ -26,6 +42,4 @@ export class AboutMeComponent {
 
     this.startScale = isOver;
   }
-
-
 }

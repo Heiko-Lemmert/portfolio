@@ -14,6 +14,7 @@ import { HeroComponent } from "./hero/hero.component";
 })
 
 export class HomeComponent {
+  /** CSS classes used for the horizontal divider element. */
   divider = 'poto-divider h-px bg-linear-to-r from-(--color-opacity) via-(--color-primary) to-(--color-opacity)';
 
 }

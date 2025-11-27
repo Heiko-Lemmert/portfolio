@@ -12,9 +12,8 @@ import { TranslocoDirective } from '@jsverse/transloco';
   styleUrl: './hero.component.scss'
 })
 export class HeroComponent {
-  // private social = inject(SociallinksService);
-  // github = this.social.socialLinks.github;
-  // linkedin = this.social.socialLinks.linkedin;
-  // mailURL = 'mailto:' + this.social.socialLinks.mail;
+  /**
+   * Array of strings used by the typed writer to cycle through titles.
+   */
   nameString: string[] = ['Heiko Lemmert', 'Frontend Developer', 'Tech Enthusiast'];
 }

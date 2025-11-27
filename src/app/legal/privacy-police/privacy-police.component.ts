@@ -10,9 +10,11 @@ import { GlobalDataService } from '../../services/global-data.service';
   styleUrl: './privacy-police.component.scss'
 })
 export class PrivacyPoliceComponent {
+  /** Global data service exposes domain and contact information. */
   readonly globalData = inject(GlobalDataService);
+  /** URL to the imprint page derived from the configured domain. */
   url = `${this.globalData.domain}/imprint`
+  /** Address object coming from the global data service. */
   address = this.globalData.address;
-
 
 }

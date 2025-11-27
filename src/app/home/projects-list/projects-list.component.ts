@@ -10,6 +10,7 @@ import { ProjectsService } from '../../services/projects.service';
   styleUrl: './projects-list.component.scss'
 })
 export class ProjectsListComponent {
+  /** Injected projects service providing project metadata used in the list. */
   projectdata = inject(ProjectsService);
 
 }

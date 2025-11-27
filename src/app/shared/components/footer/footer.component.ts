@@ -10,7 +10,9 @@ import { TranslocoDirective } from '@jsverse/transloco';
 })
 export class FooterComponent {
 
+  /** Current date instance used to derive the year shown in the footer. */
   date = new Date();
+  /** Current year number derived from `date`. */
   year = this.date.getFullYear();
 
 }

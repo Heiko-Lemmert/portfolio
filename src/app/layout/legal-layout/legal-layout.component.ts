@@ -12,4 +12,8 @@ import { RouterOutlet } from '@angular/router';
 })
 export class LegalLayoutComponent {
 
+  /**
+   * Layout wrapper used for legal pages; includes header and footer.
+   */
+
 }

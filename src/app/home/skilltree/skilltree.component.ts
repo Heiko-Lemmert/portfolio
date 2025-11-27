@@ -10,5 +10,8 @@ import { TranslocoDirective } from '@jsverse/transloco';
   styleUrl: './skilltree.component.scss'
 })
 export class SkilltreeComponent {
-   skillData = inject(SkillListService);
+  /**
+  * Injected service providing the list of skills used by the skill cards.
+  */
+  skillData = inject(SkillListService);
 }

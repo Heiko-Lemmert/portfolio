@@ -9,4 +9,8 @@ import { TranslocoDirective } from '@jsverse/transloco';
 })
 export class ImprintComponent {
 
+  /**
+   * Imprint/legal notice page component.
+   */
+
 }

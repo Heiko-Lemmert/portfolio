@@ -14,6 +14,10 @@ import { Subscription } from 'rxjs';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
+/**
+ * Header component controls site navigation state, theme toggle and active
+ * section tracking via an IntersectionObserver.
+ */
 export class HeaderComponent implements OnInit, OnDestroy {
   private observer: IntersectionObserver | null = null;
   private subscription!: Subscription;
@@ -23,8 +27,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private transloco = inject(TranslocoService);
   private globalData = inject(GlobalDataService);
   activeSection = 'Home';
+  /** Whether the light theme is currently activated. */
   lightThemeActivated: boolean = false;
+  /** Whether the top section is shown with light theme. */
   isTopOnLight: boolean = false;
+  /** Internal flag used for subscription management. */
   manuallySubscribedValue = false;
 
   _themeToggleRef!: ElementRef;
@@ -76,40 +83,75 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isTopOnLight = this.activeSection === 'home' && this.lightThemeActivated;
   }
 
+  /**
+   * Returns true when the current path is the application root and theme/top
+   * state match the expected values.
+   */
   isOnRoot() {
     const path = this.location.path();
     return (path === '' && !this.isTopOnLight && this.lightThemeActivated)
   }
 
+  /**
+   * Subscribe to global light mode changes and keep internal state in sync.
+   */
   setLightModeObserver() {
     this.subscription = this.globalData.lightModeActivated$.subscribe(value => {
       this.lightThemeActivated = value;
     });
   }
 
+  /**
+   * Create an IntersectionObserver that tracks which page section is visible
+   * and updates `activeSection`. Uses a viewport offset of half the window
+   * height to determine the active section.
+   */
   setupInterSectionObserver() {
+    const options = this.createIntersectionOptions();
+    this.observer = new IntersectionObserver(
+      (entries) => this.handleIntersectionEntries(entries),
+      options
+    );
+    this.attachObserverToSections();
+  }
+
+  /**
+   * Create configuration options for the IntersectionObserver with a margin
+   * offset equal to half the viewport height.
+   * @returns intersection observer options object
+   */
+  private createIntersectionOptions() {
     const viewportHeight = window.innerHeight;
     const halfViewport = viewportHeight / 2;
-    const options = {
+    return {
       root: null,
       rootMargin: `-${halfViewport}px 0px -${halfViewport}px 0px`,
       threshold: 0
     };
+  }
 
-    this.observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const sectionID = entry.target.id;
-          this.activeSection = sectionID || 'home';
-          this.isTopOnLight = this.activeSection === 'home' && this.lightThemeActivated;
+  /**
+   * Handle intersection observer entries and update the active section when
+   * an entry becomes visible. Updates URL fragment and light mode state.
+   * @param entries - array of IntersectionObserverEntry objects
+   */
+  private handleIntersectionEntries(entries: IntersectionObserverEntry[]) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const sectionID = entry.target.id;
+        this.activeSection = sectionID || 'home';
+        this.isTopOnLight = this.activeSection === 'home' && this.lightThemeActivated;
+        const fragment = sectionID ? `#${sectionID}` : '';
+        this.location.replaceState(`/${fragment}`);
+      }
+    });
+  }
 
-
-          const fragment = sectionID ? `#${sectionID}` : '';
-          this.location.replaceState(`/${fragment}`);
-        }
-      });
-    }, options);
-
+  /**
+   * Find all observable sections and attach the IntersectionObserver to them.
+   * Wrapped in a timeout to ensure DOM is fully ready.
+   */
+  private attachObserverToSections() {
     setTimeout(() => {
       const sections = document.querySelectorAll('section[id], div[id]:not(#toast-default)');
       sections.forEach(section => {
@@ -118,8 +160,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
         }
       });
     }, 100);
-  };
+  }
 
+  /**
+   * Re-initialize the IntersectionObserver, used on resize to ensure
+   * correct viewport thresholds.
+   */
   private reinitObserver() {
     if (this.observer) {
       this.observer.disconnect();
@@ -127,6 +173,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.setupInterSectionObserver();
   }
 
+  /**
+   * Watch route fragment changes and scroll to the corresponding section when
+   * a fragment is present.
+   */
   setActiveFragment() {
     this.route.fragment.subscribe(fragment => {
       if (fragment) {
@@ -136,6 +186,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Smooth-scroll to an element by id, or scroll to top when `home` is passed.
+   * @param sectionId - id of the section to scroll to
+   */
   scrollTo(sectionId: string) {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -151,6 +205,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Change the active translation language and persist the choice.
+   * @param lang - language code to activate (e.g. 'en' or 'de')
+   */
   changeLanguage(lang: string) {
     this.transloco.setActiveLang(lang);
     this.localStorage.setItem('language', lang)

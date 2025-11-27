@@ -11,4 +11,8 @@ import { RouterOutlet } from '@angular/router';
 })
 export class MainLayoutComponent {
 
+  /**
+   * Main application layout wrapper used across the site (header + footer).
+   */
+
 }
