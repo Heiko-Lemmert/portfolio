@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   /**
    * Application title used in index.html and for diagnostics.
    */
-  title = 'portfolio';
+  title = 'Portfolio';
 
   /**
    * Transloco service instance for language handling (DI via inject).

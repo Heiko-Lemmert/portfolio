@@ -1,6 +1,6 @@
 <nav *transloco="let t, prefix: 'navigation'"
-  class="filter backdrop-blur-3xl fixed w-screen z-999 border-b-1 border-(--color-border-nav) h-(--header-height)">
-  <div class="navbar shadow-sm">
+  class="flex justify-center filter backdrop-blur-3xl fixed w-screen z-999 border-b-1 border-(--color-border-nav) h-(--header-height)">
+  <div class="max-w-(--max-content) navbar">
     <div class="navbar-start">
       <div class="dropdown">
         <div tabindex="0" role="button" class="btn btn-ghost md:hidden">
@@ -10,17 +10,17 @@
         <ul tabindex="0"
           class="menu menu-md dropdown-content dropdown-content-mobil absolute z-1 mt-3 w-screen h-screen items-center">
           <li><a routerLink="/" class="nav-action" [class.active]="activeSection === 'home'"
-              (click)="scrollTo('home')">{{ t('home') }}</a></li>
+              (click)="handleNavClick('home')">{{ t('home') }}</a></li>
           <li><a routerLink="/" fragment="about-me" class="nav-action" [class.active]="activeSection === 'about-me'"
-              (click)="scrollTo('about-me')">{{ t('about') }}</a></li>
+              (click)="handleNavClick('about-me')">{{ t('about') }}</a></li>
           <li><a routerLink="/" fragment="skills" class="nav-action" [class.active]="activeSection === 'skills'"
-              (click)="scrollTo('skills')">{{ t('skills') }}</a></li>
+              (click)="handleNavClick('skills')">{{ t('skills') }}</a></li>
           <li><a routerLink="/" fragment="projects" class="nav-action" [class.active]="activeSection === 'projects'"
-              (click)="scrollTo('projects')">{{ t('projects') }}</a></li>
+              (click)="handleNavClick('projects')">{{ t('projects') }}</a></li>
           <li><a routerLink="/" fragment="contacts" class="nav-action" [class.active]="activeSection === 'contacts'"
-              (click)="scrollTo('contacts')">{{ t('connect') }}</a></li>
+              (click)="handleNavClick('contacts')">{{ t('connect') }}</a></li>
           <li><a routerLink="/" fragment="reviews" class="nav-action" [class.active]="activeSection === 'reviews'"
-              (click)="scrollTo('reviews')">{{ t('reviews') }}</a></li>
+              (click)="handleNavClick('reviews')">{{ t('reviews') }}</a></li>
         </ul>
       </div>
       <div class="flex-1 pl-4">

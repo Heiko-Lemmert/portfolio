@@ -125,8 +125,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     const halfViewport = viewportHeight / 2;
     return {
       root: null,
-      rootMargin: `-${halfViewport}px 0px -${halfViewport}px 0px`,
-      threshold: 0
+      rootMargin: `0px -${halfViewport}px 0px -${halfViewport}px`,
+      threshold: 0.3
     };
   }
 
@@ -189,6 +189,27 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * Handle navigation click by closing any open dropdowns and scrolling
+   * to the specified section.
+   * @param sectionId - id of the section to navigate to
+   */
+  handleNavClick(sectionId: string) {
+    this.closeDropdown();
+    this.scrollTo(sectionId);
+  }
+
+  /**
+   * Close any open dropdown menus by blurring the currently focused element.
+   */
+  closeDropdown() {
+    const activeElement = document.activeElement as HTMLElement;
+    if (activeElement) {
+      activeElement.blur();
+    }
+  }
+
+
+  /**
    * Smooth-scroll to an element by id, or scroll to top when `home` is passed.
    * @param sectionId - id of the section to scroll to
    */
@@ -206,6 +227,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       });
     }
   }
+
 
   /**
    * Change the active translation language and persist the choice.

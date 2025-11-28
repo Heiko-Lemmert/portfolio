@@ -30,7 +30,7 @@
       </ul>
     </div>
     <div class="flex-1">
-      <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" class="flex flex-col gap-3">
+      <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" class="flex flex-col gap-7">
         <div id="">
           <div class="relative">
             <input type="text" id="name-input" #name="ngModel"
@@ -44,7 +44,7 @@
               Name</label>
           </div>
           @if(name.invalid && name.touched) {
-            <p id="outlined_error_help" class="mt-1 ml-1 text-xs text-error">
+            <p id="outlined_error_help" class="absolute mt-1 ml-1 text-xs text-error">
               @if(name.errors?.['required']) {
                 <span class="font-medium">{{ t('error-name-req') }}</span>
                 }
@@ -70,7 +70,7 @@
               E-Mail</label>
           </div>
           @if(mail.invalid && mail.touched) {
-            <p id="outlined_error_help" class="mt-1 ml-1 text-xs text-error">
+            <p id="outlined_error_help" class="absolute mt-1 ml-1 text-xs text-error">
               @if(mail.errors?.['required']) {
                 <span class="font-medium">{{ t('error-mail-req') }}</span>
                 }
@@ -93,7 +93,7 @@
               Text</label>
           </div>
           @if(message.invalid && message.touched) {
-            <p id="outlined_error_help" class="mt-1 ml-1 text-xs text-error">
+            <p id="outlined_error_help" class="absolute mt-1 ml-1 text-xs text-error">
               @if(message.errors?.['required']) {
                 <span class="font-medium">{{ t('error-message-req') }}</span>
                 }
@@ -104,11 +104,11 @@
             }
         </div>
         <div class="form-group privacy-consent">
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col items-center w-16 flex-none">
             <input #privacy="ngModel" ngModel type="checkbox" id="privacy-consent" name="privacy-consent"
               class="checkbox validator" required title="Required" />
             @if(privacy.invalid && privacy.touched) {
-              <p class="validator-hint">{{ t('error-privacy') }}</p>
+              <p class="validator-hint absolute top-9">{{ t('error-privacy') }}</p>
               }
           </div>
           <label for="privacy-consent" class="text-wrap">

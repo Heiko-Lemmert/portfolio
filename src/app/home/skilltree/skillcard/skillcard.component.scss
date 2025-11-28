@@ -1,6 +1,7 @@
 .mouse-cursor-gradient-tracking {
   position: relative;
   overflow: hidden;
+  will-change: transform;
 }
 .mouse-cursor-gradient-tracking div {
   position: relative;
@@ -17,7 +18,8 @@
   background: radial-gradient(circle closest-side, var(--theme-color), transparent);
   transform: translate(-50%, -50%);
   transition: width 0.2s ease, height 0.2s ease;
+  pointer-events: none;
 }
 .mouse-cursor-gradient-tracking:hover::after {
-  --size: 200px;
+  --size: 120px;
 }
