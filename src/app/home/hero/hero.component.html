@@ -2,11 +2,11 @@
  <app-interactive-gradient-background></app-interactive-gradient-background>
 
  <!-- Hero Content -->
- <section *transloco="let t, prefix: 'hero'" id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+ <section *transloco="let t, prefix: 'hero'" id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden px-2 sm:px-4">
    <!-- Glass Card Container -->
    <!-- Content -->
-   <div class="bg-(--hero-glas) glass-card flex flex-col justify-center gap-2 md:gap-4 xl:h-max lg:py-12 xl:gap-10 h-(--glas-card-height) 2xl:w-(--glas-card-width) px-8 md:px-16 mx-4 mb-4 mt-2">
-     <h1 class="font-accent text-3xl md:text-4xl xl:text-6xl text-white mb-6 drop-shadow-lg">
+   <div class="bg-(--hero-glas) glass-card flex flex-col justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10 h-auto sm:h-(--glas-card-height) py-4 lg:py-12 w-full sm:w-auto 2xl:w-(--glas-card-width) px-4 sm:px-8 md:px-12 lg:px-16 mb-2 sm:mb-4 mt-2">
+     <h1 class="font-accent text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-white mb-2 sm:mb-4 md:mb-6 drop-shadow-lg leading-tight">
        {{t('hello')}}
        <span class="bg-linear-to-r from-primary to-secondary text-transparent bg-clip-text">
          <ngx-typed-writer [strings]="nameString" [cursorChar]="'|'" [showCursor]="false" [backSpeed]="100"
@@ -15,25 +15,25 @@
        <span class="cursor">|</span>
      </h1>
 
-     <p class="font-secondary text-xl md:text-2xl xl:text-3xl text-white/90 mb-8 max-w-6xl leading-relaxed mx-auto">
+     <p class="font-secondary text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-white/90 mb-4 sm:mb-6 md:mb-8 max-w-6xl leading-relaxed mx-auto">
       {{t('welcomeText')}}
      </p>
 
-     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+     <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 justify-center items-center">
        <button routerLink="/" fragment="projects"
-         class="hidden md:block glass-button group px-8 py-4 rounded-lg font-secondary font-semibold text-white xl:text-lg transition-all duration-300">
+         class="hidden lg:block glass-button group px-6 sm:px-8 py-2 sm:py-4 rounded-lg font-secondary font-semibold text-white text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg transition-all duration-300">
          <span class="relative z-10">{{t('projectBTN')}}</span>
        </button>
 
        <button routerLink="/" fragment="contacts"
-         class="hidden md:block glass-button group px-8 py-4 rounded-lg font-secondary font-semibold text-white xl:text-lg transition-all duration-300">
+         class="hidden lg:block glass-button group px-6 sm:px-8 py-2 sm:py-4 rounded-lg font-secondary font-semibold text-white text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg transition-all duration-300">
          {{t('contactBTN')}}
        </button>
      </div>
    </div>
 
    <!-- Scroll Indicator -->
-   <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+   <div class="hidden lg:block absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
      <div class="scroll-indicator w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
        <div class="scroll-dot w-1 h-3 bg-white/60 rounded-full mt-2 animate-bounce"></div>
      </div>

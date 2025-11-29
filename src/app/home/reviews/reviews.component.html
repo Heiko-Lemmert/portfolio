@@ -1,24 +1,24 @@
 <section *transloco="let t, prefix: 'reviews'" id="reviews"
   class="max-w-(--max-content) h-max py-8 lg:py-16 px-4 flex flex-col items-center gap-8 lg:gap-16 2xl:gap-20 text-balance">
   <h1
-    class="text-4xl lg:text-5xl font-bold mb-4 font-accent text-center bg-linear-to-r from-primary to-secondary text-transparent bg-clip-text">
+    class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 font-accent text-center bg-linear-to-r from-primary to-secondary text-transparent bg-clip-text">
     {{ t('title') }}
   </h1>
 
-  <div class="flex flex-col items-center justify-center px-4 text-center relative">
+  <div class="flex flex-col items-center justify-center px-2 sm:px-4 text-center relative w-full overflow-hidden">
     <div
-      class="w-80 h-40 sm:w-96 sm:h-48 bg-gradient-to-b from-slate-500 via-transparent to-transparent rounded-tl-full rounded-tr-full relative">
-      <div class="w-80 h-40 sm:w-96 sm:h-48 bg-(--color-base-200) rounded-tl-full rounded-tr-full absolute top-0.5">
+      class="w-64 h-32 sm:w-80 sm:h-40 md:w-96 md:h-48 bg-gradient-to-b from-slate-500 via-transparent to-transparent rounded-tl-full rounded-tr-full relative">
+      <div class="w-64 h-32 sm:w-80 sm:h-40 md:w-96 md:h-48 bg-(--color-base-200) rounded-tl-full rounded-tr-full absolute top-0.5">
       </div>
-      <div class="avatar-wrapper relative w-80 h-40 sm:w-96 sm:h-48">
+      <div class="avatar-wrapper relative w-64 h-32 sm:w-80 sm:h-40 md:w-96 md:h-48">
         <!-- Aktueller Avatar (geht raus, wenn animiert wird) -->
         <div *ngIf="isAnimating" class="avatar-anim-wrapper absolute z-10 top-1/2 left-1/2 animate-out">
           <div
-            class="avatar-container w-16 h-16 rounded-full shadow-lg mx-auto transform -translate-x-1/2 -translate-y-1/2">
+            class="avatar-container w-12 h-12 sm:w-16 sm:h-16 rounded-full shadow-lg mx-auto transform -translate-x-1/2 -translate-y-1/2">
             <img src="https://api.dicebear.com/9.x/glass/svg?seed={{ reviewName }}" alt="Avatar"
-              class="w-16 h-16 rounded-full" />
+              class="w-12 h-12 sm:w-16 sm:h-16 rounded-full" />
             <div
-              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-xl font-bold shadow-lg">
+              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-lg sm:text-xl font-bold shadow-lg">
               {{ reviewInitial }}
             </div>
           </div>
@@ -26,11 +26,11 @@
         <!-- Aktueller Avatar (sichtbar, wenn keine Animation läuft) -->
         <div *ngIf="!isAnimating" class="avatar-anim-wrapper absolute z-10 top-1/2 left-1/2">
           <div
-            class="avatar-container w-16 h-16 rounded-full shadow-lg mx-auto transform -translate-x-1/2 -translate-y-1/2 animate-pulse">
+            class="avatar-container w-12 h-12 sm:w-16 sm:h-16 rounded-full shadow-lg mx-auto transform -translate-x-1/2 -translate-y-1/2 animate-pulse">
             <img src="https://api.dicebear.com/9.x/glass/svg?seed={{ reviewName }}" alt="Avatar"
-              class="w-16 h-16 rounded-full" />
+              class="w-12 h-12 sm:w-16 sm:h-16 rounded-full" />
             <div
-              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-xl font-bold shadow-lg">
+              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-lg sm:text-xl font-bold shadow-lg">
               {{ reviewInitial }}
             </div>
           </div>
@@ -39,11 +39,11 @@
         <div *ngIf="isAnimating && nextIndex !== null"
           class="avatar-anim-wrapper absolute z-10 top-1/2 left-1/2 animate-in">
           <div
-            class="avatar-container w-16 h-16 rounded-full shadow-lg mx-auto transform -translate-x-1/2 -translate-y-1/2">
+            class="avatar-container w-12 h-12 sm:w-16 sm:h-16 rounded-full shadow-lg mx-auto transform -translate-x-1/2 -translate-y-1/2">
             <img src="https://api.dicebear.com/9.x/glass/svg?seed={{ reviewsData[nextIndex].name }}" alt="Avatar"
-              class="w-16 h-16 rounded-full" />
+              class="w-12 h-12 sm:w-16 sm:h-16 rounded-full" />
             <div
-              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-xl font-bold shadow-lg">
+              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-lg sm:text-xl font-bold shadow-lg">
               {{ reviewsData[nextIndex].initial }}
             </div>
           </div>
@@ -54,17 +54,17 @@
 
 
     <!-- Zitat -->
-    <p class="max-w-3xl  text-base sm:text-lg md:text-xl font-medium relative z-10 -mt-6 ">
+    <p class="max-w-2xl sm:max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl font-medium relative z-10 -mt-4 sm:-mt-6 px-2">
       {{ t(reviewText) }}
     </p>
 
 
 
     <!-- Name & Position -->
-    <div class="mt-6 flex flex-col sm:flex-row flex-wrap justify-center gap-2 text-sm relative z-10">
+    <div class="mt-4 sm:mt-6 flex flex-col sm:flex-row flex-wrap justify-center gap-2 text-xs sm:text-sm relative z-10 px-2">
       @for(data of reviewsData; track $index) {
         <span id="review-{{ $index }}" (click)="setReview($index)" [class.reviewActiv]="setActiv($index)"
-          class="px-3 py-1 bg-(--color-base-200)/50 rounded-full border border-(--color-primary)/30 hover:border-(--color-accent)/60 hover:text-(--color-hover-text) cursor-pointer">
+          class="px-2 sm:px-3 py-1 bg-(--color-base-200)/50 rounded-full border border-(--color-primary)/30 hover:border-(--color-accent)/60 hover:text-(--color-hover-text) cursor-pointer whitespace-nowrap">
           {{ data.name }} – {{t('project')}} {{ data.project }}
         </span>
         }

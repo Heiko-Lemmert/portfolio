@@ -1,24 +1,24 @@
 @if(skill.name === 'Growth Mindset') {
-  <div class="tooltip tooltip-neutral overflow-visible z-50">
-    <div class="tooltip-content py-2">
-      <div class=" text-xl font-black">{{ 'skills.interest' | transloco }}</div>
-      <div class="flex justify-center gap-4 pt-2">
-      <i class="ci ci-vuejs ci-2xl"></i>
-      <i class="ci ci-react ci-2xl"></i>
+  <div class="tooltip tooltip-neutral z-50">
+    <div class="tooltip-content py-1 sm:py-2 text-xs sm:text-sm">
+      <div class="text-sm sm:text-lg font-black">{{ 'skills.interest' | transloco }}</div>
+      <div class="flex justify-center gap-2 sm:gap-4 pt-1 sm:pt-2">
+      <i class="ci ci-vuejs ci-lg sm:ci-2xl"></i>
+      <i class="ci ci-react ci-lg sm:ci-2xl"></i>
       </div>
     </div>
     <div #skillCard [style.--theme-color]="glowColor"
-      class="bg-(--bg-glas) glass-card mouse-cursor-gradient-tracking flex flex-col items-center justify-evenly size-[150px]">
+      class="bg-(--bg-glas) glass-card mouse-cursor-gradient-tracking flex flex-col items-center justify-evenly size-32 sm:size-40 lg:size-[150px]">
       <i [ngClass]="lightModeActivated ? skill.icon : skill.iconLight"
-      class="ci ci-3x"></i>
-      <span class="hidden md:block">{{ skill.name }}</span>
+      class="ci ci-2xl sm:ci-2xl lg:ci-3x"></i>
+      <span class="hidden md:block text-xs sm:text-sm">{{ skill.name }}</span>
     </div>
   </div>
   } @else {
    <div #skillCard [style.--theme-color]="glowColor"
-    class="bg-(--bg-glas) glass-card mouse-cursor-gradient-tracking flex flex-col items-center justify-evenly size-[150px]">
+    class="bg-(--bg-glas) glass-card mouse-cursor-gradient-tracking flex flex-col items-center justify-evenly size-32 sm:size-40 lg:size-[150px]">
     <i [ngClass]="lightModeActivated ? skill.icon : skill.iconLight" 
-    class="ci ci-3x"></i>
-    <span class="hidden md:block">{{ skill.name }}</span>
+    class="ci ci-2xl sm:ci-2xl lg:ci-3x"></i>
+    <span class="hidden md:block text-xs sm:text-sm">{{ skill.name }}</span>
   </div>
   }
